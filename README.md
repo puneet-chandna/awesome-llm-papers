@@ -324,29 +324,30 @@ View all foundational papers →
 <div align="center">
 
 ```mermaid
-%%{init: {'theme':'dark'}}%%
+%%{init: {"theme":"dark"}}%%
 graph TD
-    Q1[2025 Q1] -->|RAG Revolution| Q2[2025 Q2]
-    Q2 -->|Agents & Tools| Q3[2025 Q3]
-    Q2 -->|1M+ Context| Q3
-    Q2 -->|MoE Everything| Q3
-    Q3 -->|Reasoning Models| Q4[2025 Q4]
-    Q3 -->|Multimodal Fusion| Q4
-    Q4 -->|Memory Architectures| C[2026 Q1]
-    Q4 -->|Agentic AI Boom| D[2026 Q1]
-    Q4 -->|MoE at Scale| E[2026 Q1]
-    C -->|Recursive LMs| F[2026 Q2]
-    D -->|Self-Improving Agents| F
-    E -->|200K+ Context| F
 
-    style Q1 fill:#0f172a
-    style Q2 fill:#1e293b
-    style Q3 fill:#334155
-    style Q4 fill:#475569
-    style C fill:#4b5563
-    style D fill:#6b7280
-    style E fill:#9ca3af
-    style F fill:#059669
+q1["2025 Q1"] -->|"RAG Revolution"| q2["2025 Q2"]
+q2 -->|"Agents & Tools"| q3["2025 Q3"]
+q2 -->|"1M+ Context"| q3
+q2 -->|"MoE Everything"| q3
+q3 -->|"Reasoning Models"| q4["2025 Q4"]
+q3 -->|"Multimodal Fusion"| q4
+q4 -->|"Memory Architectures"| c["2026 Q1"]
+q4 -->|"Agentic AI Boom"| d["2026 Q1"]
+q4 -->|"MoE at Scale"| e["2026 Q1"]
+c -->|"Recursive LMs"| f["2026 Q2"]
+d -->|"Self-Improving Agents"| f
+e -->|"200k+ Context"| f
+
+style q1 fill:#0f172a
+style q2 fill:#1e293b
+style q3 fill:#334155
+style q4 fill:#475569
+style c fill:#4b5563
+style d fill:#6b7280
+style e fill:#9ca3af
+style f fill:#059669
 ```
 
 ### January 2026 Momentum
