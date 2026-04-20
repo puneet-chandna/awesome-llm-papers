@@ -263,6 +263,8 @@ View all foundational papers →
 
 ### ⚡ [**Efficiency & Scaling**](categories/efficiency.md)
 
+- **OneComp: One-Line Revolution for Generative AI Model Compression** (arXiv 2026) — Unified PTQ framework for LLMs with vLLM plugin. [[Paper](https://arxiv.org/abs/2603.28845)] [[Code](https://github.com/FujitsuResearch/OneCompression)]
+
 > _Quantization, Pruning, Fast inference_  
 > **📄 13 papers** &nbsp;|&nbsp; 🔥
 
