@@ -72,13 +72,13 @@ _"Hot research areas this month - Where the field is moving"_
 ## 📆 This Week's Essential Reads
 
 <details open>
-<summary><b>Click to expand this week's papers</b> (January 1-7, 2026)</summary>
+<summary><b>Click to expand this week's papers</b> (September 21-25, 2026)</summary>
 
-- **Monday** - [mHC: Manifold-Constrained Hyper-Connections](https://arxiv.org/pdf/2512.24880) - Stabilizes residual connections at scale through manifold projection.
-- **Tuesday** - [VL-JEPA: World Model Architecture](https://arxiv.org/pdf/2512.10942) - Meta's joint embedding predictive architecture for video/world modeling.  
-- **Wednesday** - [IQuest-Coder-V1: Code-Flow Training](https://github.com/IQuestLab/IQuest-Coder-V1/blob/main/papers/IQuest_Coder_Technical_Report.pdf) - Revolutionary Code-Flow paradigm achieving 76.2% on SWE-Bench Verified.
-- **Thursday** - [Close the Loop: Infinite Tool-Use Data](https://arxiv.org/abs/2512.23611) - Self-evolving system achieving 258% improvement on function calling.
-- **Friday** - [Context as a Tool: SWE-Agent Memory](https://arxiv.org/abs/2512.22087) - CAT paradigm for proactive context management.
+- **Monday** - [mHC: Manifold-Constrained Hyper-Connections](https://arxiv.org/abs/2512.24880) - Constrains hyper-connections to improve stability in large-model training.
+- **Tuesday** - [Context as a Tool: Context Management for Long-Horizon SWE-Agents](https://arxiv.org/abs/2512.22087) - Lets coding agents manage long-running context through an explicit tool.
+- **Wednesday** - [Absolute Zero: Reinforced Self-play Reasoning with Zero Data](https://arxiv.org/abs/2505.03335) - Builds a reasoning curriculum from self-generated tasks and verifiable feedback.
+- **Thursday** - [Uncheatable Eval: Dynamic Compression-Based Evaluation of Language Models](https://arxiv.org/abs/2609.27510) - Evaluates base models on fresh text through lossless compression to reduce contamination risk.
+- **Friday** - [Can LLMs Reason About Runtime Behavior? A Repository-Level Dynamic Benchmark](https://arxiv.org/abs/2609.28449) - Grounds repository-level execution questions in instrumented test runs.
 
 </details>
 
