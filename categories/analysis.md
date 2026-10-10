@@ -3,10 +3,10 @@
 <div align="center">
 
 [![Awesome](https://awesome.re/badge-flat2.svg)](https://awesome.re)
-[![Papers](https://img.shields.io/badge/Papers-11+-blue.svg)](https://github.com)
-[![Years](https://img.shields.io/badge/Years-2020--2024-green.svg)](https://github.com)
-[![License: CC0](https://img.shields.io/badge/License-CC0-yellow.svg)](https://opensource.org/licenses/CC0-1.0)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+[![Works](https://img.shields.io/badge/Works-22-blue.svg)](all-papers.md)
+[![Years](https://img.shields.io/badge/Years-2020--2025-green.svg)](all-papers.md)
+[![License: CC0](https://img.shields.io/badge/License-CC0-yellow.svg)](../LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](../CONTRIBUTING.md)
 
 ### A curated collection of papers on interpretability, mechanistic analysis, and evaluation of Large Language Models
 
@@ -20,7 +20,9 @@ _Understanding the inner workings of LLMs—from circuit-level analysis to emerg
 
 - [🔍 Interpretability](#-interpretability)
 - [🪄 Emergent Abilities](#-emergent-abilities)
+- [📏 Scaling Laws](#-scaling-laws)
 - [📊 Evaluation](#-evaluation)
+- [📖 Foundations & Perspectives](#-foundations--perspectives)
 
 ---
 
@@ -28,38 +30,46 @@ _Understanding the inner workings of LLMs—from circuit-level analysis to emerg
 
 ### 📄 [A Mathematical Framework for Transformer Circuits](https://transformer-circuits.pub/2021/framework/index.html)
 
-**Authors:** Elhage et al. (Anthropic)  
+**Authors:** Nelson Elhage et al. (Anthropic)<br>
 **Contribution:** `🔬 Mechanistic Interpretability`
 
-> Established the foundational **mathematical framework for understanding Transformers as computational circuits**. This seminal work introduced key concepts like the residual stream, attention heads as information movers, and MLPs as memory stores. It laid the groundwork for mechanistic interpretability, enabling researchers to reverse-engineer how specific computations emerge from model weights.
+> An **author research article** developing a circuit view of attention-only Transformers, including residual streams and information movement through heads. Its toy-model analysis provides reusable tools while leaving full-model and MLP explanations open.
+
+---
 
 ### 📄 [In-context Learning and Induction Heads](https://transformer-circuits.pub/2022/in-context-learning-and-induction-heads/index.html)
 
-**Authors:** Olsson et al. (Anthropic)  
+**Authors:** Catherine Olsson et al. (Anthropic)<br>
 **Contribution:** `🧩 Circuit Discovery`
 
-> Identified **induction heads**—a specific circuit pattern responsible for in-context learning in Transformers. This paper demonstrated that a simple two-attention-head circuit can implement pattern matching and copying, explaining a core mechanism behind few-shot learning. It provided concrete evidence that complex behaviors emerge from identifiable, interpretable circuits.
+> Studies **induction-head circuits** that match and continue repeated patterns, with evidence linking their formation to aspects of in-context learning. The strongest causal results concern small attention-only models; they do not explain every form of in-context learning.
 
-### 📄 [Scaling Monosemanticity: Extracting Interpretable Features from Claude 3 Sonnet](https://transformer-circuits.pub/2024/scaling-monosemanticity/) 🆕
+---
 
-**Authors:** Templeton et al. (Anthropic)  
+### 📄 [Scaling Monosemanticity: Extracting Interpretable Features from Claude 3 Sonnet](https://transformer-circuits.pub/2024/scaling-monosemanticity/)
+
+**Authors:** Adly Templeton et al. (Anthropic)<br>
 **Contribution:** `🔎 Feature Extraction`
 
-> Applied **sparse autoencoders at unprecedented scale** to extract millions of interpretable features from a production-grade model (Claude 3 Sonnet). This work demonstrated that even the largest models contain monosemantic features—neurons that respond to specific, human-understandable concepts—providing a scalable path toward understanding what knowledge LLMs encode and how they represent it.
+> Uses **sparse autoencoders to extract learned features** from Claude 3 Sonnet activations. Interpretable features are directions in a learned decomposition, not necessarily single neurons, and identifying them does not fully explain the model’s computation.
 
-### 📄 [Scaling and Evaluating Sparse Autoencoders](https://arxiv.org/abs/2406.04093) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+---
 
-**Authors:** Leo Gao, Tom Dupré la Tour et al. (OpenAI)  
+### 📄 [Scaling and evaluating sparse autoencoders](https://arxiv.org/abs/2406.04093) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** Leo Gao et al. (OpenAI)<br>
 **Contribution:** `🔬 Interpretability at Scale`
 
-> Proposed **k-sparse autoencoders** with clean scaling laws for extracting interpretable features from LLMs. Trained a 16M latent autoencoder on GPT-4 for 40B tokens—the largest interpretability experiment ever. Introduced new metrics for feature quality and released training code for open-source models.
+> Scales **k-sparse autoencoders** and develops evaluation tools for interpreting learned activation features. The study includes a 16M-latent GPT-4 autoencoder trained on 40B tokens, building on earlier k-sparse methods; learned features still have incomplete interpretability and context limitations.
+
+---
 
 ### 📄 [Representation Engineering: A Top-Down Approach to AI Transparency](https://arxiv.org/abs/2310.01405)
 
-**Authors:** Zou et al. (Center for AI Safety)  
+**Authors:** Andy Zou et al.<br>
 **Contribution:** `🎛️ Representation Control`
 
-> Introduced **Representation Engineering (RepE)**, a framework for understanding and controlling LLM behavior by directly manipulating internal representations. Rather than analyzing individual neurons, RepE identifies high-level concepts in activation space and enables steering model behavior by adding or subtracting these concept vectors, offering a practical approach to AI transparency and control.
+> Uses **representation reading and control** to identify and steer high-level concepts in model activations. RepE offers a complementary approach to circuit analysis; demonstrated steering does not establish complete interpretability or safe control in every context.
 
 ---
 
@@ -67,81 +77,160 @@ _Understanding the inner workings of LLMs—from circuit-level analysis to emerg
 
 ### 📄 [Emergent Abilities of Large Language Models](https://arxiv.org/abs/2206.07682) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
 
-**Authors:** Wei et al. (Google, DeepMind, Stanford, UNC)  
+**Authors:** Jason Wei et al.<br>
 **Contribution:** `🪄 Emergence Theory`
 
-> Formalized and documented **emergent abilities**—capabilities that appear suddenly and unpredictably as models scale. The paper catalogued numerous examples where performance on specific tasks remained near-random until a critical scale threshold, after which it jumped dramatically. This work shaped our understanding of why scaling matters and what surprises larger models might hold.
+> Catalogues **emergent abilities as measured on selected tasks**, where scores appear abruptly with scale. It provides a useful historical framework; metric-dependent interpretations should be read alongside the later Mirage analysis.
+
+---
 
 ### 📄 [Are Emergent Abilities of Large Language Models a Mirage?](https://arxiv.org/abs/2304.15004)
 
-**Authors:** Schaeffer et al. (Stanford)  
+**Authors:** Rylan Schaeffer, Brando Miranda and Sanmi Koyejo<br>
 **Contribution:** `🔬 Critical Analysis`
 
-> Challenged the prevailing narrative of emergent abilities by demonstrating that **apparent emergence can be an artifact of metric choice**. The paper showed that when using linear or continuous metrics instead of discontinuous ones (like exact-match accuracy), the sharp transitions disappear and performance scales smoothly. This critical analysis reshaped how researchers interpret and measure model capabilities.
+> Shows how **metric choice can create apparent emergence** in studied tasks and model families. Continuous measures can reveal smoother progress hidden by thresholded scores; these cases do not explain every possible emergent behavior.
+
+---
 
 ### 📄 [Language Models Don't Always Say What They Think: Unfaithful Explanations in Chain-of-Thought Prompting](https://arxiv.org/abs/2305.04388)
 
-**Authors:** Turpin et al. (Anthropic, NYU)  
+**Authors:** Miles Turpin et al.<br>
 **Contribution:** `⚠️ Faithfulness Analysis`
 
-> Revealed that **Chain-of-Thought explanations can be systematically unfaithful** to the model's actual reasoning process. By introducing biasing features that influenced model answers without appearing in the explanations, this work demonstrated that CoT outputs may post-hoc rationalize rather than reveal true reasoning, raising important questions about interpretability through natural language explanations.
+> Introduces biasing features that alter answers without being acknowledged in **generated chain-of-thought explanations**. These controlled counterexamples show why readable rationales need faithfulness evaluation; they do not establish that every rationale is unfaithful.
 
 ---
 
 ## 📏 Scaling Laws
 
-### 📄 [Scaling Laws for Neural Language Models](https://arxiv.org/abs/2001.08361) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat\u0026labelColor=000000)
+### 📄 [Scaling Laws for Neural Language Models](https://arxiv.org/abs/2001.08361) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
 
-**Authors:** Kaplan et al. (OpenAI)  
+**Authors:** Jared Kaplan et al. (OpenAI)<br>
 **Contribution:** `📊 Foundational Scaling`
 
-> Established **predictable power-law scaling relationships** between model performance, model size, dataset size, and compute. This foundational work revealed that loss scales as smooth power laws across many orders of magnitude, enabling accurate predictions of how performance improves with scale. These laws guided the industry's investment in ever-larger models and democratized understanding of what scale achievements were achievable.
+> Fits empirical **language-model loss scaling** with parameters, data and compute over measured regimes. A quantitative framework for training allocation; loss fits should be distinguished from laws of general capability or unlimited extrapolation.
 
-### 📄 [Scaling Laws for Code: Every Programming Language Matters](https://arxiv.org/abs/2512.13472) 🆕
+---
 
-**Authors:** Yang et al. (Beihang University, Ubiquant, Renmin University of China)  
+### 📄 [Scaling Laws for Code: Every Programming Language Matters](https://arxiv.org/abs/2512.13472)
+
+**Authors:** Jian Yang et al.<br>
 **Contribution:** `💻 Language-Specific Scaling`
 
-> First comprehensive study of **language-specific scaling laws for code LLMs**. Through 1000+ experiments training 420 models across 7 programming languages (Python, JavaScript, TypeScript, Java, C#, Go, Rust), the paper reveals that interpreted languages like Python benefit more from scale than compiled languages like Rust. Introduces **proportion-dependent multilingual scaling laws** and the concept of **irreducible loss** as a measure of language complexity. Provides actionable guidance for optimal token allocation when training multilingual code models.
+> Studies **language-specific code scaling** and multilingual data proportions across seven programming languages. The fitted loss relations guide allocation within the tested models, corpora and tokenizers; irreducible loss should not be treated as an intrinsic measure of programming-language complexity.
+
+---
+
+### 📄 [Scaling Language Models: Methods, Analysis & Insights from Training Gopher](https://arxiv.org/abs/2112.11446) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** Jack W. Rae et al.<br>
+**Contribution:** `📊 Scaling Analysis`
+
+> An **official Gopher report** studying a 280B model across a broad task suite. Scale helps reading comprehension and fact-checking more than selected logic/math tasks; data, bias and task-dependent failures remain central to its analysis.
+
+---
+
+### 📄 [Training Compute-Optimal Large Language Models](https://arxiv.org/abs/2203.15556) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** Jordan Hoffmann et al.<br>
+**Contribution:** `⚖️ Compute Allocation`
+
+> Studies **compute-optimal allocation between parameter count and training tokens** under a fixed pretraining budget. Chinchilla shows why many contemporary large models were undertrained; deployment cost and inference frequency can change the preferred allocation.
 
 ---
 
 ## 📊 Evaluation
 
-### 📄 [Measuring Massive Multitask Language Understanding (MMLU)](https://arxiv.org/abs/2009.03300)
+### 📄 [Measuring Massive Multitask Language Understanding](https://arxiv.org/abs/2009.03300)
 
-**Authors:** Hendrycks et al. (UC Berkeley)  
+**Authors:** Dan Hendrycks et al.<br>
 **Contribution:** `📏 Benchmark`
 
-> Introduced **MMLU**, a comprehensive benchmark covering 57 subjects across STEM, humanities, social sciences, and more. With questions ranging from elementary to professional difficulty, MMLU became the de facto standard for measuring broad knowledge and reasoning capabilities in LLMs, providing a single metric that captures multitask understanding across diverse domains.
+> Introduces **MMLU**, multiple-choice evaluation across 57 academic and professional subjects. It exposes broad but uneven performance and calibration gaps; an aggregate score is not a complete measure of understanding.
 
-### 📄 [Beyond the Imitation Game: Quantifying and Extrapolating the Capabilities of Language Models (BIG-bench)](https://arxiv.org/abs/2206.04615)
+---
 
-**Authors:** Srivastava et al. (Google, et al.)  
+### 📄 [Beyond the Imitation Game: Quantifying and extrapolating the capabilities of language models](https://arxiv.org/abs/2206.04615)
+
+**Authors:** Aarohi Srivastava et al. (BIG-bench collaboration)<br>
 **Contribution:** `🎯 Comprehensive Evaluation`
 
-> Created **BIG-bench**, a collaborative benchmark with over 200 tasks contributed by 450+ researchers. Designed to probe capabilities beyond standard benchmarks, it includes tasks testing linguistic knowledge, reasoning, world knowledge, and social understanding. BIG-bench revealed that model capabilities scale predictably on some tasks while showing emergent behavior on others.
+> Introduces **BIG-bench**, a collaborative collection of over 200 tasks probing diverse language-model capabilities. It highlights uneven scaling and challenging evaluations; task design and metric brittleness shape apparent transitions.
 
-### 📄 [Holistic Evaluation of Language Models (HELM)](https://arxiv.org/abs/2211.09110)
+---
 
-**Authors:** Liang et al. (Stanford)  
+### 📄 [Holistic Evaluation of Language Models](https://arxiv.org/abs/2211.09110)
+
+**Authors:** Percy Liang et al.<br>
 **Contribution:** `🔄 Holistic Assessment`
 
 > Proposed **HELM**, a framework for evaluating LLMs across multiple dimensions simultaneously—accuracy, calibration, robustness, fairness, efficiency, and more. Rather than optimizing for a single metric, HELM provides a comprehensive view of model capabilities and limitations, enabling more informed comparisons and highlighting trade-offs between different aspects of performance.
 
+---
+
 ### 📄 [Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena](https://arxiv.org/abs/2306.05685)
 
-**Authors:** Zheng et al. (UC Berkeley, UCSD, CMU, Stanford)  
+**Authors:** Lianmin Zheng et al.<br>
 **Contribution:** `⚖️ LLM Evaluation`
 
-> Introduced **MT-Bench** and the **Chatbot Arena** methodology for evaluating conversational AI. This work demonstrated that strong LLMs can serve as reliable judges of other models' outputs, correlating well with human preferences. The Chatbot Arena's crowdsourced pairwise comparisons created a dynamic leaderboard that became the gold standard for comparing chat models.
+> Studies **LLM judging, MT-Bench and crowdsourced pairwise Chatbot Arena comparisons**. Strong judges agree with human preferences in the tested settings, while position, verbosity, self-enhancement and reasoning biases limit their reliability.
 
-### 📄 [The Illusion of Thinking: Understanding Strengths and Limitations of Reasoning Models](https://ml-site.cdn-apple.com/papers/the-illusion-of-thinking.pdf) 🆕
+---
 
-**Authors:** Shojaee et al. (Apple Machine Learning Research, June 2025)  
+### 📄 [The Illusion of Thinking: Understanding the Strengths and Limitations of Reasoning Models via the Lens of Problem Complexity](https://arxiv.org/abs/2506.06941)
+
+**Authors:** Parshin Shojaee et al.<br>
 **Contribution:** `🔬 Reasoning Analysis`
 
-> A critical analysis of **Large Reasoning Models (LRMs)** like o1/R1 that reveals fundamental limitations. The paper identifies three performance regimes: (1) **low-complexity**: standard LLMs outperform LRMs; (2) **medium-complexity**: LRMs show advantage through extended thinking; (3) **high-complexity**: both experience **complete collapse**. Most importantly, it reveals that LRMs "give up" on very hard tasks—their reasoning abruptly shrinks despite available token budget. Demonstrates the apparent reasoning is often an "illusion," particularly as problem complexity increases.
+> Studies reasoning models on controlled puzzles of increasing complexity, observing task-dependent gains and eventual failures. Read the **revised protocols and output constraints** before interpreting collapse: these experiments do not prove reasoning is impossible or that explanations are universally illusory.
+
+---
+
+### 📄 [Training Verifiers to Solve Math Word Problems](https://arxiv.org/abs/2110.14168) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** Cobbe et al.<br>
+**Contribution:** `✅ GSM8K & Verifiers`
+
+> See the main entry in [Reasoning](reasoning.md) for the method, evidence and limitations.
+
+---
+
+### 📄 [Scaling Laws for Reward Model Overoptimization](https://arxiv.org/abs/2210.10760)
+
+**Authors:** Gao, Schulman & Hilton<br>
+**Contribution:** `⚠️ Proxy Optimization`
+
+> Measures how stronger optimization of an imperfect **proxy reward** can eventually reduce a synthetic gold-model reward under best-of-N and PPO. A useful failure model for alignment; the gold reward is not actual human values and the fitted relations are setup-dependent.
+
+---
+
+### 📄 [Pythia: A Suite for Analyzing Large Language Models Across Training and Scaling](https://arxiv.org/abs/2304.01373)
+
+**Authors:** Biderman et al.<br>
+**Contribution:** `🔬 Controlled Model Suite`
+
+> Releases **model suites, training checkpoints and data-order tooling** for studying learning dynamics and scale. Compare models within the original or deduplicated Pile cohort; the two cohorts do not share an identical data sequence, and frontier-scale extrapolation needs fresh evidence.
+
+---
+
+### 📄 [Lost in the Middle: How Language Models Use Long Contexts](https://arxiv.org/abs/2307.03172)
+
+**Authors:** Liu et al.<br>
+**Contribution:** `📍 Context Utilization`
+
+> See the main entry in [Rag](rag.md) for the method, evidence and limitations.
+
+---
+
+## 📖 Foundations & Perspectives
+
+### 📄 [On the Opportunities and Risks of Foundation Models](https://arxiv.org/abs/2108.07258) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** Rishi Bommasani et al.<br>
+**Contribution:** `📖 Research Perspective`
+
+> A **research report and perspective** defining foundation models and examining adaptation, homogenization and societal risks. It supplies a shared framework for inherited downstream capabilities and failures rather than a new training experiment.
 
 ---
 

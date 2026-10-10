@@ -1,189 +1,73 @@
 # RLHF: Training Language Models with Human Feedback - Detailed Summary
 
-📄 **Paper:** [Training language models to follow instructions with human feedback](https://arxiv.org/abs/2203.02155)  
-👥 **Authors:** Long Ouyang, Jeff Wu, Xu Jiang, Diogo Almeida, Carroll L. Wainwright, et al.  
-🏛️ **Institution:** OpenAI  
-📅 **Published:** March 2022
+📄 **Paper:** [Training language models to follow instructions with human feedback](https://arxiv.org/abs/2203.02155)<br>
+👥 **Authors:** Long Ouyang, Jeffrey Wu, Xu Jiang, Diogo Almeida, Carroll L. Wainwright, et al. · OpenAI<br>
+📅 **First public version:** March 2022 · NeurIPS 2022
 
 ---
 
 ## 🎯 One-Line Summary
 
-Introduced InstructGPT by aligning GPT-3 with human preferences using reinforcement learning from human feedback, creating the foundation for ChatGPT and modern AI assistants.
-
-## 🔍 Problem Statement
-
-Standard language models trained on internet data have issues:
-
-- **Misalignment:** Optimize for next-token prediction, not helpfulness
-- **Toxic outputs:** Can generate harmful, biased, or false content
-- **Poor instruction following:** Don't naturally follow user intent
-- **Lack of common sense:** May produce technically correct but unhelpful responses
+InstructGPT adapts pretrained GPT-3 to instructions through human demonstrations, preference modeling and reinforcement learning.
 
 ## 💡 Key Innovation: Three-Stage RLHF Pipeline
 
-### The InstructGPT Training Process:
-
+```mermaid
+flowchart TD
+    B[Pretrained GPT-3] --> S[Fine-tune on demonstrations]
+    H[Humans rank sampled responses] --> R[Train preference reward model]
+    S --> P[PPO policy optimization]
+    R --> P
+    K[KL penalty relative to SFT policy] --> P
 ```
-Stage 1: Supervised Fine-Tuning (SFT)
-   ↓
-Stage 2: Reward Model (RM) Training
-   ↓
-Stage 3: Reinforcement Learning (PPO)
-```
 
-### **Stage 1: Supervised Fine-Tuning**
+| Stage | Signal | Purpose |
+| :-- | :-- | :-- |
+| **SFT** | Human-written responses | Initialize instruction-following behavior. |
+| **Reward modeling** | Comparisons of sampled outputs | Predict labeler preferences. |
+| **PPO** | Reward with KL regularization | Optimize the proxy while constraining drift. |
 
-**Process:**
+PPO-ptx also mixes in a pretraining objective to reduce public-task regressions.
 
-1. Collect demonstration data (human-written responses)
-2. Fine-tune GPT-3 on high-quality examples
-3. Creates initial instruction-following model
-
-**Dataset:** 13,000 prompts with labeler demonstrations
-
-### **Stage 2: Reward Model Training**
-
-**Process:**
-
-1. Generate multiple outputs for each prompt
-2. Human labelers rank outputs (A > B > C > D)
-3. Train reward model to predict human preferences
-4. Model learns what "good" looks like
-
-**Dataset:** 33,000 prompts with ~10 ranked outputs each
-
-### **Stage 3: Reinforcement Learning (PPO)**
-
-**Process:**
-
-1. Generate response to prompt
-2. Reward model scores the response
-3. Update policy using PPO (Proximal Policy Optimization)
-4. Add KL penalty to stay close to SFT model (prevent drift)
-
-**Formula:**
-
-```
-Reward = RM_score - β × KL(policy || SFT_model)
-```
+[Version 1, Appendix Table 6](https://arxiv.org/html/2203.02155v1) lists **12,725 SFT**, **33,207 reward-model**, and **31,144 PPO training prompts**. Prompts are not counts of pairwise comparisons.
 
 ## 📊 Results & Impact
 
-### Human Preference Results:
-
-| Comparison                       | InstructGPT Preferred |
-| -------------------------------- | --------------------- |
-| vs GPT-3 175B                    | **85%**               |
-| vs GPT-3 with prompt engineering | **71%**               |
-| vs Fine-tuned GPT-3              | **73%**               |
-
-### Key Improvements:
-
-- **Truthfulness:** 21% fewer hallucinations on TruthfulQA
-- **Harmlessness:** 25% reduction in toxic outputs
-- **Instruction Following:** 3x better at following user intent
-- **Model Size:** 1.3B InstructGPT > 175B GPT-3 on preferences
-
-### Why This Changed Everything:
-
-1. **ChatGPT Foundation:** Direct predecessor to ChatGPT
-2. **Alignment Breakthrough:** Showed RLHF works at scale
-3. **Efficiency:** Smaller aligned models > larger unaligned ones
-4. **Industry Standard:** Every major LLM now uses RLHF
-5. **User Experience:** Made LLMs actually useful for consumers
-
-## 🔮 What Came After
-
-This paper spawned:
-
-- **ChatGPT** (Nov 2022): InstructGPT with conversation interface
-- **GPT-4** (Mar 2023): RLHF at larger scale
-- **Claude** (2023): Constitutional AI + RLHF hybrid
-- **Llama 2-Chat** (2023): Open-source RLHF implementation
-- **Gemini** (2023): Google's RLHF-aligned models
-- **DPO** (2023): Simpler alternative to RLHF
+On the authors' prompt distribution, labelers preferred 1.3B InstructGPT to 175B GPT-3. [§4](https://arxiv.org/html/2203.02155v1#S4) also evaluates truthfulness, toxicity and public tasks. This does not imply a smaller model has greater capability on every task.
 
 ## 💻 Implementation
 
-```python
-# RLHF Training Pipeline (simplified)
+Conceptual objective:
 
-# Stage 1: Supervised Fine-Tuning
-sft_model = finetune(
-    base_model=gpt3,
-    demonstrations=human_written_responses,
-    epochs=16
-)
-
-# Stage 2: Train Reward Model
-reward_model = train_rm(
-    model=gpt3_clone,
-    comparisons=ranked_output_pairs,  # A > B rankings
-    loss="pairwise_ranking_loss"
-)
-
-# Stage 3: PPO Reinforcement Learning
-for prompt in dataset:
-    # Generate response
-    response = policy_model.generate(prompt)
-
-    # Get reward
-    reward = reward_model.score(prompt, response)
-
-    # Add KL penalty (stay close to SFT model)
-    kl_penalty = KL_divergence(policy_model, sft_model)
-    total_reward = reward - beta * kl_penalty
-
-    # Update policy with PPO
-    policy_model.update(total_reward)
+```text
+policy objective ≈ preference reward − β × KL(policy || SFT policy)
+PPO-ptx additionally mixes in a pretraining objective.
 ```
 
-## 🎯 Key Design Choices
-
-### **Why PPO?**
-
-- Stable updates (prevents catastrophic forgetting)
-- Handles non-differentiable reward signals
-- Proven in gaming (OpenAI Five, DeepMind AlphaStar)
-
-### **Why KL Penalty?**
-
-- Prevents model from drifting too far
-- Maintains language fluency
-- Avoids reward hacking
-
-### **Data Quality > Quantity:**
-
-- 13K SFT examples carefully curated
-- Quality demonstrations from skilled labelers
-- Better than training on millions of low-quality examples
+Working training needs rollout sampling, a value estimator, token likelihoods and PPO's clipped objective. This is a pipeline explanation, not executable training code.
 
 ## ⚠️ Limitations & Challenges
 
-- **Expensive:** Requires thousands of hours of human labeling
-- **Bias:** Reflects labeler preferences and biases
-- **Reward Hacking:** Models can exploit reward model weaknesses
-- **Distribution Shift:** May fail on out-of-distribution prompts
-- **Alignment Tax:** Some capability loss during alignment
+- Selected labelers' preferences need not represent every user's values.
+- KL regularization does not guarantee safety or prevent reward exploitation.
+- Harmful/false outputs and distribution-shift failures remain possible.
+- Pretraining, demonstrations and preference annotation are separate costs.
+
+## 🔮 What Came After
+
+[DPO](https://arxiv.org/abs/2305.18290) derives a direct preference objective without fitting a separate reward model. [Reward overoptimization](https://arxiv.org/abs/2210.10760) studies an imperfect proxy against a synthetic gold reward.
 
 ## 🎓 Key Takeaways
 
-- **Human feedback is gold:** Small amounts of quality human data > massive unsupervised training
-- **Three stages work:** SFT → RM → PPO is the winning recipe
-- **Size isn't everything:** 1.3B aligned > 175B unaligned
-- **KL penalty is critical:** Prevents model from going off the rails
-- **Foundation for AI assistants:** Every modern chatbot uses this approach
-- **Alignment is possible:** Can train models to be helpful and harmless
+Distinguish what labelers prefer, what a reward model predicts and what a deployed user needs.
 
 ## 📚 Essential Resources
 
-- [Original Paper](https://arxiv.org/abs/2203.02155)
-- [OpenAI Blog Post](https://openai.com/research/instruction-following) - Official announcement
-- [HuggingFace RLHF Blog](https://huggingface.co/blog/rlhf) - Comprehensive tutorial
-- [OpenAI Code](https://github.com/openai/following-instructions-human-feedback) - Implementation details
-- [Anthropic RLHF Paper](https://arxiv.org/abs/2204.05862) - Extended analysis
-- [TRL Library](https://github.com/huggingface/trl) - Open-source RLHF implementation
-- [DPO Paper](https://arxiv.org/abs/2305.18290) - Simpler alternative to RLHF
+- [Original paper and revisions](https://arxiv.org/abs/2203.02155)
+- [Methods and evaluations — version 1](https://arxiv.org/html/2203.02155v1)
+- [Authors' evaluation samples](https://github.com/openai/following-instructions-human-feedback) — not a full training implementation
+- [Training collection](../categories/training.md)
 
-## 📝 This summary is part of [Awesome LLM Papers](https://github.com/puneet-chandna/awesome-LLM-papers) - Star us for Weekly research updates!
+---
+
+Part of [Awesome LLM Papers](../README.md). Summary reviewed 10 October 2026 against the linked source version.

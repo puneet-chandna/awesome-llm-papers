@@ -3,765 +3,953 @@
 <div align="center">
 
 [![Awesome](https://awesome.re/badge-flat2.svg)](https://awesome.re)
-[![Papers](https://img.shields.io/badge/Papers-145-blue.svg)](https://github.com)
-[![Years](https://img.shields.io/badge/Years-2017--2026-green.svg)](https://github.com)
+[![Works](https://img.shields.io/badge/Works-148-blue.svg)](all-papers.md)
+[![Years](https://img.shields.io/badge/Years-2000--2026-green.svg)](all-papers.md)
 
-**Complete chronological listing of all LLM papers in this repository**
-
-_Sorted from newest to oldest • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)_
-
-[2026](#-2026) • [2025](#-2025) • [2024](#-2024) • [2023](#-2023) • [2022](#-2022) • [2021](#-2021) • [2020](#-2020) • [2019](#-2019) • [2018](#-2018) • [2017](#-2017)
+**One record per curated work, with useful cross-category navigation. Papers, technical reports and author research resources are labeled in their entries.**
 
 </div>
 
----
+[2026](#-2026) • [2025](#-2025) • [2024](#-2024) • [2023](#-2023) • [2022](#-2022) • [2021](#-2021) • [2020](#-2020) • [2019](#-2019) • [2018](#-2018) • [2017](#-2017) • [2014](#-2014) • [2000](#-2000)
 
-## 🚀 2026
-
-### [IQuest-Coder-V1: Code-Flow Training for Autonomous Software Engineering](https://github.com/IQuestLab/IQuest-Coder-V1/blob/main/papers/IQuest_Coder_Technical_Report.pdf)
-
-**IQuest Coder Team** • `Training` `Reasoning` `Agentic Coding`
-
-> Code-Flow training paradigm on repository evolution and commit transitions; 76.2% on SWE-Bench Verified with emergent error recovery
+Dates follow the earliest public paper/resource record verified in this audit; venue and revision years can differ. NNLM includes its NIPS 2000 and expanded JMLR 2003 versions as one work. ELMo’s 2017 date follows the authors’ stated OpenReview appearance. IQuest’s first report date remains uncertain; it is listed with its dated 2026 release.
 
 ---
 
-## 🔥 2025
+## 📅 2026
 
-### [mHC: Manifold-Constrained Hyper-Connections](https://arxiv.org/pdf/2512.24880)
+### [Attention Residuals](https://arxiv.org/abs/2603.15031)
 
-**DeepSeek AI** • `Architecture` `Stability`
+**Kimi Team (Guangyu Chen et al.)** • [Architectures](architectures.md)
 
-> Stabilizes residual connections at scale through manifold projection
+> Uses **input-dependent aggregation across depth**, with Block AttnRes and systems optimizations for scaled training.
+
+### [Conditional Memory via Scalable Lookup: A New Axis of Sparsity for Large Language Models](https://arxiv.org/abs/2601.07372)
+
+**Cheng et al.** • [Architectures](architectures.md) [Efficiency](efficiency.md)
+
+> **Engram** uses hashed n-gram lookup with contextual gating alongside neural computation.
+
+### [IQuest-Coder-V1 Technical Report](https://github.com/IQuestLab/IQuest-Coder-V1/blob/main/papers/IQuest_Coder_Technical_Report.pdf)
+
+**IQuest Coder Team / Yang et al.** • [Reasoning](reasoning.md) [Training](training.md)
+
+> An **official technical report** on repository-evolution Code-Flow training and separate Instruct/Thinking post-training.
+
+---
+
+## 📅 2025
+
+### [mHC: Manifold-Constrained Hyper-Connections](https://arxiv.org/abs/2512.24880)
+
+**Zhenda Xie et al. (DeepSeek)** • [Architectures](architectures.md)
+
+> Constrains expanded residual mixing through **doubly stochastic projections** to improve stability while preserving useful connectivity.
+
+### [Recursive Language Models](https://arxiv.org/abs/2512.24601)
+
+**Zhang, Kraska & Khattab** • [Rag](rag.md) [Reasoning](reasoning.md)
+
+> Exposes a long input through a **programmable environment** and allows recursive model calls over selected pieces.
 
 ### [Close the Loop: Synthesizing Infinite Tool-Use Data via Multi-Agent Role-Playing](https://arxiv.org/abs/2512.23611)
 
-**Li et al. (Sichuan University, Beihang University, IQuest Research)** • `Training` `Tool-Use`
+**Yuwen Li et al.** • [Training](training.md)
 
-> Multi-agent self-evolving system achieving 258% improvement on function calling with zero human annotation
+> Introduces **InfTool**, combining synthetic API trajectories with gated-reward GRPO.
 
 ### [Context as a Tool: Context Management for Long-Horizon SWE-Agents](https://arxiv.org/abs/2512.22087)
 
-**Liu et al. (Beihang University, Manchester, Ubiquant)** • `Reasoning` `Agents`
+**Shukai Liu et al.** • [Reasoning](reasoning.md)
 
-> CAT paradigm elevating context management to a callable tool; 57.6% on SWE-Bench Verified with bounded context budgets
+> Makes **context management a callable action** for long-horizon software agents.
 
 ### [Scaling Laws for Code: Every Programming Language Matters](https://arxiv.org/abs/2512.13472)
 
-**Yang et al. (Beihang University, Ubiquant, Renmin University of China)** • `Analysis` `Scaling Laws` `Code`
+**Jian Yang et al.** • [Analysis](analysis.md)
 
-> 1000+ experiments reveal language-specific scaling laws for code LLMs with proportion-dependent multilingual optimization
+> Studies **language-specific code scaling** and multilingual data proportions across seven programming languages.
 
-### [VL-JEPA: Joint Embedding Predictive Architecture for Video/World Modeling](https://arxiv.org/abs/2512.10942)
+### [VL-JEPA: Joint Embedding Predictive Architecture for Vision-language](https://arxiv.org/abs/2512.10942)
 
-**Meta AI** • `Multimodal` `World Models`
+**Delong Chen et al.** • [Multimodal](multimodal.md)
 
-> Learns physics and dynamics from video by predicting embeddings rather than pixels
+> Predicts **target text embeddings conditioned on visual input and a text query**, with selective text decoding.
 
-### [DeepSeek-V3.2: Reasoning Rival](https://arxiv.org/pdf/2512.02556)
+### [DeepSeek-V3.2: Pushing the Frontier of Open Large Language Models](https://arxiv.org/abs/2512.02556)
 
-**DeepSeek AI** • `Reasoning` `Math`
+**DeepSeek-AI et al.** • [Architectures](architectures.md)
 
-> Open-source reasoning model rivaling GPT-5 in mathematics and logic at 1/10th the cost
+> Combines **DeepSeek Sparse Attention**, scaled reinforcement learning and synthetic agent tasks in an open-weight model family.
 
 ### [DeepSeek-OCR: Contexts Optical Compression](https://arxiv.org/abs/2510.18234)
 
-**DeepSeek AI** • `Multimodal` `Compression`
+**Haoran Wei, Yaofeng Sun and Yukun Li (DeepSeek)** • [Multimodal](multimodal.md)
 
-> Achieves 97% OCR accuracy at 10x compression, processing 200K+ pages/day on single GPU
+> Investigates **optical compression of text** using a vision encoder and decoder.
+
+### [HAPE: Hardware-Aware LLM Pruning For Efficient On-Device Inference Optimization](https://dl.acm.org/doi/epdf/10.1145/3744244)
+
+**Wenqian Zhao, Lancheng Zou, Zixiao Wang, Xufeng Yao and Bei Yu (CUHK)** • [Efficiency](efficiency.md)
+
+> Studies **hardware-aware structured pruning** with an optimization model for latency, sparsity and quality.
+
+### [The Illusion of Thinking: Understanding the Strengths and Limitations of Reasoning Models via the Lens of Problem Complexity](https://arxiv.org/abs/2506.06941)
+
+**Parshin Shojaee et al.** • [Analysis](analysis.md)
+
+> Studies reasoning models on controlled puzzles of increasing complexity, observing task-dependent gains and eventual failures.
 
 ### [Absolute Zero: Reinforced Self-play Reasoning with Zero Data](https://arxiv.org/abs/2505.03335)
 
-**Salesforce AI** • `Reasoning` `Self-Improvement` • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+**Andrew Zhao et al.** • [Training](training.md) [Reasoning](reasoning.md)
 
-> Model autonomously generates reasoning problems and improves through self-play without human data
+> Uses an executor to validate **self-proposed coding reasoning tasks** and trains through reinforced self-play.
 
-### [Janus-Pro: Unified Multimodal Understanding and Generation](https://arxiv.org/pdf/2501.17811)
+### [Large Language Diffusion Models](https://arxiv.org/abs/2502.09992)
 
-**DeepSeek AI** • `Multimodal` `Architecture`
+**Nie et al.** • [Architectures](architectures.md) [Training](training.md)
 
-> Decouples visual encoding for understanding vs generation, excelling at both without trade-offs
+> **LLaDA** learns masked-token denoising and generates through iterative unmasking, offering a scaled alternative to autoregressive language modeling.
 
-### [DeepSeek-R1: Incentivizing Reasoning Capability via RL](https://arxiv.org/abs/2501.12948)
+### [Scaling up Test-Time Compute with Latent Reasoning: A Recurrent Depth Approach](https://arxiv.org/abs/2502.05171)
 
-**DeepSeek AI** • `Reasoning` `RL` • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+**Geiping et al.** • [Architectures](architectures.md) [Reasoning](reasoning.md)
 
-> Rewards correct reasoning steps, not just final answers, boosting problem-solving
+> Trains a **shared recurrent core** so inference can spend additional computation in hidden states without emitting more reasoning tokens.
+
+### [s1: Simple Test-Time Scaling](https://arxiv.org/abs/2501.19393)
+
+**Muennighoff et al.** • [Reasoning](reasoning.md) [Training](training.md)
+
+> Distills a small curated reasoning set into a pretrained model and uses **budget forcing**, including “Wait” continuations, to control test-time reasoning length.
+
+### [Janus-Pro: Unified Multimodal Understanding and Generation with Data and Model Scaling](https://arxiv.org/abs/2501.17811)
+
+**Xiaokang Chen et al. (DeepSeek)** • [Multimodal](multimodal.md)
+
+> Improves the Janus framework through **training strategy, data and model scaling** for multimodal understanding and generation.
+
+### [DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning](https://arxiv.org/abs/2501.12948)
+
+**DeepSeek-AI et al.** • [Reasoning](reasoning.md) • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+> Studies reasoning-oriented reinforcement learning: **R1-Zero uses rule-based final-answer accuracy and format rewards**, rather than labels on each intermediate step.
+
+---
+
+## 📅 2024
 
 ### [Titans: Learning to Memorize at Test Time](https://arxiv.org/abs/2501.00663)
 
-**Google Research** • `Architecture` `Memory` • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+**Ali Behrouz, Peilin Zhong, Vahab Mirrokni** • [Architectures](architectures.md) • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
 
-> Revolutionary memory architecture handling 2M+ tokens with persistent test-time memory
+> Combines local attention with **gradient-updated neural memory**, using surprise-sensitive updates, momentum and decay.
 
-### [The Illusion of Thinking: Understanding Strengths and Limitations of Reasoning Models](https://ml-site.cdn-apple.com/papers/the-illusion-of-thinking.pdf)
+### [DeepSeek-V3 Technical Report](https://arxiv.org/abs/2412.19437)
 
-**Apple ML Research** • `Analysis` `Reasoning`
+**DeepSeek-AI** • [Architectures](architectures.md) [Training](training.md)
 
-> Reveals that reasoning models "give up" on hard tasks and reasoning is often an illusion
+> Combines **MoE, multi-head latent attention, load balancing and FP8 training** in a large model system.
 
-### [HAPE: Hardware-Aware LLM Pruning For Efficient On-Device Inference](https://dl.acm.org/doi/epdf/10.1145/3744244)
+### [Training Large Language Models to Reason in a Continuous Latent Space](https://arxiv.org/abs/2412.06769)
 
-**TODAES** • `Efficiency` `Pruning`
+**Hao et al.** • [Reasoning](reasoning.md) [Architectures](architectures.md)
 
-> Hardware-specific pruning considering device constraints for efficient edge deployment
+> **Coconut** feeds continuous hidden states back as input embeddings and trains through a curriculum replacing verbal reasoning steps.
 
----
+### [OpenAI o1 System Card](https://arxiv.org/abs/2412.16720)
 
-## 🚀 2024
+**OpenAI (Aaron Jaech et al.)** • [Reasoning](reasoning.md) [Safety](safety.md)
+
+> An **official system card** documenting o1’s capabilities, safety evaluations and mitigations.
+
+### [Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters](https://arxiv.org/abs/2408.03314)
+
+**Snell et al.** • [Reasoning](reasoning.md)
+
+> Studies **difficulty-dependent allocation** between answer revision and verifier-guided search.
 
 ### [The Llama 3 Herd of Models](https://arxiv.org/abs/2407.21783)
 
-**Meta AI** • `Architecture` `Open Models` • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+**Aaron Grattafiori et al.** • [Architectures](architectures.md) • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
 
-> State-of-the-art open models rivaling closed-source systems
+> An **official Llama 3 model-family report** covering models through 405B parameters, 128K context, post-training and safety evaluations.
 
-### [RAG vs Long-Context LLMs: A Comprehensive Study](https://arxiv.org/abs/2407.16833)
+### [Retrieval Augmented Generation or Long-Context LLMs? A Comprehensive Study and Hybrid Approach](https://arxiv.org/abs/2407.16833)
 
-**EMNLP** • `RAG` `Analysis`
+**Zhuowan Li et al.** • [Rag](rag.md)
 
-> Proves RAG still needed despite 1M+ context - cheaper and more accurate
+> Compares retrieval-augmented generation with long-context models.
+
+### [Scaling and evaluating sparse autoencoders](https://arxiv.org/abs/2406.04093)
+
+**Leo Gao et al. (OpenAI)** • [Analysis](analysis.md) • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+> Scales **k-sparse autoencoders** and develops evaluation tools for interpreting learned activation features.
+
+### [Transformers are SSMs: Generalized Models and Efficient Algorithms Through Structured State Space Duality](https://arxiv.org/abs/2405.21060)
+
+**Tri Dao et al.** • [Architectures](architectures.md)
+
+> Develops **structured state-space duality** connecting a class of state-space models and attention formulations.
 
 ### [SimPO: Simple Preference Optimization with a Reference-Free Reward](https://arxiv.org/abs/2405.14734)
 
-**Princeton** • `Training` `Alignment`
+**Yu Meng et al.** • [Training](training.md)
 
-> Reference-free successor to DPO with superior stability and memory efficiency
+> Optimizes preferences using **length-normalized sequence log probabilities and a target reward margin**, without a reference model.
+
+### [Scaling Monosemanticity: Extracting Interpretable Features from Claude 3 Sonnet](https://transformer-circuits.pub/2024/scaling-monosemanticity/)
+
+**Adly Templeton et al. (Anthropic)** • [Analysis](analysis.md)
+
+> Uses **sparse autoencoders to extract learned features** from Claude 3 Sonnet activations.
 
 ### [Chameleon: Mixed-Modal Early-Fusion Foundation Models](https://arxiv.org/abs/2405.09818)
 
-**Meta FAIR** • `Multimodal` `Early Fusion`
+**Chameleon Team (Meta FAIR)** • [Multimodal](multimodal.md)
 
-> Tokenizes images and text together from start, generating mixed content natively
+> Trains **mixed discrete image and text tokens in one early-fusion model**, with methods for stable multimodal training and interleaved generation.
 
-### [Mixture-of-Depths: Dynamically Allocating Compute](https://arxiv.org/abs/2404.02258)
+### [From Local to Global: A Graph RAG Approach to Query-Focused Summarization](https://arxiv.org/abs/2404.16130)
 
-**Google DeepMind** • `Architecture` `Efficiency`
+**Darren Edge et al. (Microsoft)** • [Rag](rag.md)
 
-> Tokens skip layers based on complexity, saving 12-50% compute
+> Builds entity graphs and hierarchical community summaries for **global, query-focused summarization**.
 
-### [GraphRAG: Unlocking LLM Discovery on Narrative Data](https://arxiv.org/abs/2404.16130)
+### [Leave No Context Behind: Efficient Infinite Context Transformers with Infini-attention](https://arxiv.org/abs/2404.07143)
 
-**Microsoft** • `RAG` `Knowledge Graph`
+**Tsendsuren Munkhdalai et al.** • [Rag](rag.md)
 
-> Builds knowledge graphs first, enabling "global" questions standard RAG can't answer
+> Combines **local attention and compressive memory** to process successive segments with bounded working memory.
 
-### [Leave No Context Behind: Infini-attention](https://arxiv.org/abs/2404.07143)
+### [Mixture-of-Depths: Dynamically allocating compute in transformer-based language models](https://arxiv.org/abs/2404.02258)
 
-**Google** • `RAG` `Memory`
+**David Raposo et al.** • [Architectures](architectures.md)
 
-> Combines local attention with compressive memory for infinite-length processing
+> Uses learned token routing with a **fixed top-k compute budget** at selected layers.
 
-### [Many-Shot Jailbreaking](https://www-cdn.anthropic.com/af5633c94ed2beb282f6a53c595eb437e8e7b630/Many_Shot_Jailbreaking__2024_04_02_0936.pdf)
+### [Many-shot Jailbreaking](https://www-cdn.anthropic.com/af5633c94ed2beb282f6a53c595eb437e8e7b630/Many_Shot_Jailbreaking__2024_04_02_0936.pdf)
 
-**Anthropic** • `Safety` `Attacks`
+**Cem Anil et al. (Anthropic)** • [Safety](safety.md)
 
-> Shows 100+ fake examples in context override safety training via in-context learning
+> An **author research report** studying how many in-context demonstrations can induce harmful responses.
 
 ### [Jamba: A Hybrid Transformer-Mamba Language Model](https://arxiv.org/abs/2403.19887)
 
-**AI21 Labs** • `Architecture` `Hybrid`
+**Opher Lieber et al.** • [Architectures](architectures.md)
 
-> Successfully combines Transformer and Mamba layers for 256K+ context
-
-### [Gemini 1.5: Multimodal Understanding Across Millions of Tokens](https://arxiv.org/abs/2403.05530)
-
-**Google** • `Multimodal` `Long-Context`
-
-> MoE architecture processing 10M tokens of multimodal context
-
-### [MM1: Methods, Analysis & Insights from Multimodal Pre-training](https://arxiv.org/abs/2403.09611)
-
-**Apple** • `Multimodal` `Analysis`
-
-> Rigorous ablation study providing recipe book for multimodal models
-
-### [ORPO: Monolithic Preference Optimization](https://arxiv.org/abs/2403.07691)
-
-**KAIST** • `Training` `Alignment`
-
-> Combines SFT and preference alignment without reference model
+> Combines **attention, Mamba and MoE layers** in a hybrid language model.
 
 ### [The Unreasonable Ineffectiveness of the Deeper Layers](https://arxiv.org/abs/2403.17887)
 
-**Meta, ETH Zurich** • `Efficiency` `Pruning`
+**Andrey Gromov et al.** • [Efficiency](efficiency.md)
 
-> Up to half of LLM layers can be removed with minimal impact
+> Finds that substantial blocks of deeper layers can be removed from tested LLMs with **healing fine-tuning** while preserving selected task scores.
 
-### [The Era of 1-bit LLMs: BitNet b1.58](https://arxiv.org/abs/2402.17764)
+### [MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training](https://arxiv.org/abs/2403.09611)
 
-**Microsoft Research** • `Efficiency` `Quantization`
+**Brandon McKinzie et al.** • [Multimodal](multimodal.md)
 
-> Ternary weights {-1, 0, 1} matching FP16 performance
+> Ablates **vision encoders, image resolution/token counts, connectors and training-data mixtures** in multimodal pretraining.
+
+### [ORPO: Monolithic Preference Optimization without Reference Model](https://arxiv.org/abs/2403.07691)
+
+**Jiwoo Hong, Noah Lee and James Thorne** • [Training](training.md)
+
+> Combines a **supervised likelihood objective with an odds-ratio preference penalty** in one reference-free training stage.
+
+### [The Era of 1-bit LLMs: All Large Language Models are in 1.58 Bits](https://arxiv.org/abs/2402.17764)
+
+**Shuming Ma et al. (Microsoft Research)** • [Efficiency](efficiency.md)
+
+> Studies **BitNet b1.58**, whose trained weights are ternary (−1, 0, +1) with quantization-aware computation.
+
+### [Video generation models as world simulators](https://openai.com/index/video-generation-models-as-world-simulators/)
+
+**OpenAI** • [Multimodal](multimodal.md)
+
+> An **official technical report** on Sora’s diffusion-transformer video generation and spatiotemporal patches.
+
+### [Gemini 1.5: Unlocking multimodal understanding across millions of tokens of context](https://arxiv.org/abs/2403.05530)
+
+**Gemini Team (Google)** • [Multimodal](multimodal.md)
+
+> An **official Gemini 1.5 report** studying long multimodal context and model capabilities.
+
+### [Direct Language Model Alignment from Online AI Feedback](https://arxiv.org/abs/2402.04792)
+
+**Shangmin Guo et al.** • [Training](training.md)
+
+> Generates **online preference comparisons with an AI judge** while adapting the language model.
+
+### [DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models](https://arxiv.org/abs/2402.03300)
+
+**Zhihong Shao et al.** • [Reasoning](reasoning.md) • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+> Presents DeepSeekMath and **Group Relative Policy Optimization (GRPO)**, which estimates relative advantages from groups of sampled solutions without a separate critic.
 
 ### [KTO: Model Alignment as Prospect Theoretic Optimization](https://arxiv.org/abs/2402.01306)
 
-**Stanford, Contextual AI** • `Training` `Alignment`
+**Kawin Ethayarajh et al.** • [Training](training.md)
 
-> Uses binary feedback instead of pairwise preferences
+> Derives **Kahneman–Tversky Optimization**, a utility-inspired objective that uses desirable/undesirable labels rather than paired preferences.
 
 ### [OLMo: Accelerating the Science of Language Models](https://arxiv.org/abs/2402.00838)
 
-**AI2** • `Architecture` `Open Science` • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+**Dirk Groeneveld et al. (AI2)** • [Training](training.md) • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
 
-> Fully open with complete training data, code, and tools
-
-### [DeepSeekMath: Pushing the Limits of Mathematical Reasoning](https://arxiv.org/abs/2402.03300)
-
-**DeepSeek AI** • `Reasoning` `Math` • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
-
-> First open model approaching GPT-4 on MATH benchmark (51.7%), using GRPO for mathematical reasoning
-
-### [Scaling and Evaluating Sparse Autoencoders](https://arxiv.org/abs/2406.04093)
-
-**OpenAI** • `Analysis` `Interpretability` • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
-
-> k-sparse autoencoders with clean scaling laws; 16M latent autoencoder trained on GPT-4 for 40B tokens
+> Releases **OLMo weights, training code, data and evaluation tooling** to support open language-model research.
 
 ### [LLaVA-NeXT: Improved reasoning, OCR, and world knowledge](https://llava-vl.github.io/blog/2024-01-30-llava-next/)
 
-**ByteDance, UW-Madison** • `Multimodal` `Vision-Language`
+**Haotian Liu et al.** • [Multimodal](multimodal.md)
 
-> GPT-4V-level performance with dynamic high-resolution processing
-
-### [Self-Play Fine-Tuning (SPIN)](https://arxiv.org/abs/2401.01335)
-
-**UCLA** • `Training` `Self-Improvement`
-
-> Model improves by distinguishing its outputs from human ones
+> An **official LLaVA-NeXT release post** on higher-resolution visual processing and improved instruction data.
 
 ### [Self-Rewarding Language Models](https://arxiv.org/abs/2401.10020)
 
-**Meta AI** • `Training` `Self-Improvement`
+**Weizhe Yuan et al.** • [Training](training.md)
 
-> Model judges its own outputs for continuous self-improvement
+> Uses an **LLM-as-judge to create preference pairs** for iterative DPO.
 
-### [RAPTOR: Recursive Processing for Tree-Organized Retrieval](https://arxiv.org/abs/2401.18059)
+### [Sleeper Agents: Training Deceptive LLMs that Persist Through Safety Training](https://arxiv.org/abs/2401.05566)
 
-**Stanford** • `RAG` `Hierarchical`
+**Hubinger et al.** • [Safety](safety.md)
 
-> Builds hierarchical tree of summaries for multi-level retrieval
+> Constructs **trigger-dependent backdoors** and tests their persistence through supervised, reinforcement and adversarial safety training.
+
+### [Mixtral of Experts](https://arxiv.org/abs/2401.04088)
+
+**Albert Q. Jiang et al. (Mistral AI)** • [Architectures](architectures.md)
+
+> Reports **Mixtral 8×7B**, routing each token to two experts with about 13B active of 46.7B total parameters.
+
+### [Self-Play Fine-Tuning Converts Weak Language Models to Strong Language Models](https://arxiv.org/abs/2401.01335)
+
+**Zixiang Chen et al.** • [Training](training.md)
+
+> Iteratively trains a policy to distinguish **human demonstration responses from its own generated responses**.
+
+### [RAPTOR: Recursive Abstractive Processing for Tree-Organized Retrieval](https://arxiv.org/abs/2401.18059)
+
+**Parth Sarthi et al.** • [Rag](rag.md)
+
+> Proposed a novel approach to organizing retrieved information in a **hierarchical tree structure**.
 
 ---
 
-## 🌍 2023
+## 📅 2023
 
-### [InternVL: Scaling up Vision Foundation Models](https://arxiv.org/abs/2312.14238)
+### [InternVL: Scaling up Vision Foundation Models and Aligning for Generic Visual-Linguistic Tasks](https://arxiv.org/abs/2312.14238)
 
-**Shanghai AI Lab** • `Multimodal` `Vision-Language`
+**Zhe Chen et al.** • [Multimodal](multimodal.md)
 
-> Scales vision encoder to 6B parameters for SOTA multimodal understanding
+> Scales a **vision encoder and progressively aligns it with language models** for generic visual-linguistic tasks.
 
-### [Mamba: Linear-Time Sequence Modeling](https://arxiv.org/abs/2312.00752)
+### [Mamba: Linear-Time Sequence Modeling with Selective State Spaces](https://arxiv.org/abs/2312.00752)
 
-**CMU, Princeton** • `Architecture` `SSM` • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+**Albert Gu and Tri Dao** • [Architectures](architectures.md) • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
 
-> Selective state space model achieving Transformer quality with linear complexity
+> Makes **state-space parameters input-dependent** and uses a hardware-aware scan for sequence modeling.
+
+### [Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection](https://arxiv.org/abs/2310.11511)
+
+**Akari Asai et al.** • [Rag](rag.md)
+
+> Trains a model to generate **retrieval and reflection tokens**, allowing adaptive retrieval and assessment of passages and answers.
+
+### [MemGPT: Towards LLMs as Operating Systems](https://arxiv.org/abs/2310.08560)
+
+**Charles Packer et al.** • [Rag](rag.md)
+
+> Treats context as a **managed memory hierarchy**, paging between a bounded prompt and external storage.
 
 ### [Mistral 7B](https://arxiv.org/abs/2310.06825)
 
-**Mistral AI** • `Architecture` `Efficiency` • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+**Albert Q. Jiang et al.** • [Architectures](architectures.md) • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
 
-> Outperforms Llama 13B using Grouped-Query and Sliding Window Attention
+> Combines **grouped-query attention and sliding-window attention** in the Mistral 7B model.
 
-### [MemGPT: LLMs as Operating Systems](https://arxiv.org/abs/2310.08560)
+### [Ring Attention with Blockwise Transformers for Near-Infinite Context](https://arxiv.org/abs/2310.01889)
 
-**UC Berkeley** • `RAG` `Memory`
+**Hao Liu et al.** • [Rag](rag.md)
 
-> Treats context as virtual memory with OS-like paging
+> Distributes blockwise attention across devices in a **ring**, overlapping computation with communication.
 
-### [Ring Attention: Near-Infinite Context](https://arxiv.org/abs/2310.01889)
+### [Representation Engineering: A Top-Down Approach to AI Transparency](https://arxiv.org/abs/2310.01405)
 
-**UC Berkeley** • `RAG` `Infinite Context`
+**Andy Zou et al.** • [Analysis](analysis.md)
 
-> Distributes attention across devices for virtually unlimited sequences
+> Uses **representation reading and control** to identify and steer high-level concepts in model activations.
 
-### [Self-RAG: Learning to Retrieve, Generate, and Critique](https://arxiv.org/abs/2310.11511)
+### [LongLoRA: Efficient Fine-tuning of Long-Context Large Language Models](https://arxiv.org/abs/2309.12307)
 
-**UW, IBM** • `RAG` `Self-Reflection`
+**Yukang Chen et al.** • [Rag](rag.md)
 
-> Model learns when to retrieve and self-critiques with reflection tokens
+> Combines **shifted sparse attention during fine-tuning** with parameter-efficient adaptation for long context.
 
-### [Representation Engineering: Top-Down AI Transparency](https://arxiv.org/abs/2310.01405)
+### [Efficient Memory Management for Large Language Model Serving with PagedAttention](https://arxiv.org/abs/2309.06180)
 
-**Center for AI Safety** • `Safety` `Interpretability`
+**Woosuk Kwon et al.** • [Efficiency](efficiency.md)
 
-> Directly manipulates internal representations for behavioral control
+> Introduces **PagedAttention** for non-contiguous KV-cache storage and sharing in vLLM.
 
-### [LongLoRA: Efficient Fine-tuning of Long-Context LLMs](https://arxiv.org/abs/2309.12307)
+### [Graph of Thoughts: Solving Elaborate Problems with Large Language Models](https://arxiv.org/abs/2308.09687)
 
-**CUHK, MIT** • `RAG` `Long-Context`
+**Maciej Besta et al.** • [Reasoning](reasoning.md)
 
-> Extends context to 100K+ tokens with minimal compute
+> Organizes generated thoughts as a **graph**, supporting aggregation, refinement and reuse of intermediate solutions.
 
-### [Efficient Memory Management with PagedAttention (vLLM)](https://arxiv.org/abs/2309.06180)
+### [Universal and Transferable Adversarial Attacks on Aligned Language Models](https://arxiv.org/abs/2307.15043)
 
-**UC Berkeley** • `Efficiency` `Inference`
+**Andy Zou et al.** • [Safety](safety.md)
 
-> Virtual memory paging for attention, 2-4x throughput increase
-
-### [Graph of Thoughts: Solving Elaborate Problems](https://arxiv.org/abs/2308.09687)
-
-**ETH Zurich** • `Reasoning` `Structured`
-
-> Models thoughts as graphs for merging and refining reasoning
-
-### [Universal Transferable Adversarial Attacks on Aligned LLMs](https://arxiv.org/abs/2307.15043)
-
-**CMU, Center for AI Safety** • `Safety` `Attacks`
-
-> Automated suffixes bypass safety in ChatGPT, Claude, Bard
-
-### [FlashAttention-2: Faster Attention with Better Parallelism](https://arxiv.org/abs/2307.08691)
-
-**Princeton** • `Efficiency` `Attention`
-
-> 2x speedup over FlashAttention with optimized parallelism
-
-### [Retentive Network: A Successor to Transformer](https://arxiv.org/abs/2307.08621)
-
-**Microsoft, Tsinghua** • `Architecture` `Retention`
-
-> Training parallelism, low-cost inference, and linear complexity simultaneously
+> Optimizes **adversarial suffixes** against aligned models and studies their transfer across models and interfaces.
 
 ### [Llama 2: Open Foundation and Fine-Tuned Chat Models](https://arxiv.org/abs/2307.09288)
 
-**Meta** • `Architecture` `Open Models` • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+**Hugo Touvron et al. (Meta)** • [Architectures](architectures.md) • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
 
-> Open models with commercial license and comprehensive safety
+> An **official Llama 2 report** on pretrained and chat-tuned open-weight models, including preference training and safety evaluations.
 
-### [Visual Instruction Tuning (LLaVA)](https://arxiv.org/abs/2304.08485)
+### [Retentive Network: A Successor to Transformer for Large Language Models](https://arxiv.org/abs/2307.08621)
 
-**Microsoft, UW-Madison** • `Multimodal` `Instruction`
+**Yutao Sun et al.** • [Architectures](architectures.md)
 
-> Connects vision encoder to LLM, pioneering visual instruction following
+> Introduces **retention** with parallel training, recurrent decoding and chunkwise computation.
+
+### [FlashAttention-2: Faster Attention with Better Parallelism and Work Partitioning](https://arxiv.org/abs/2307.08691)
+
+**Tri Dao** • [Efficiency](efficiency.md)
+
+> Improves exact attention through **work partitioning and GPU parallelism**.
+
+### [Lost in the Middle: How Language Models Use Long Contexts](https://arxiv.org/abs/2307.03172)
+
+**Liu et al.** • [Rag](rag.md) [Analysis](analysis.md)
+
+> Varies relevant-information position in **multi-document QA and key-value retrieval**, finding weaker use of middle positions in many tested models.
 
 ### [Jailbroken: How Does LLM Safety Training Fail?](https://arxiv.org/abs/2307.02483)
 
-**CMU, Center for AI Safety** • `Safety` `Analysis`
+**Alexander Wei, Nika Haghtalab and Jacob Steinhardt (UC Berkeley)** • [Safety](safety.md)
 
-> Systematic taxonomy of jailbreak attacks and failure modes
+> Analyzes **competing objectives and mismatched generalization** as two routes to jailbreak failures.
 
-### [Toolformer: Language Models Can Teach Themselves to Use Tools](https://arxiv.org/abs/2302.04761)
+### [Extending Context Window of Large Language Models via Positional Interpolation](https://arxiv.org/abs/2306.15595)
 
-**Meta AI** • `Reasoning` `Tool Use`
+**Shouyuan Chen et al. (Meta AI)** • [Rag](rag.md)
 
-> Models autonomously learn when and how to use external tools
+> Extends RoPE-based context through **position interpolation**, mapping positions back into the original range before fine-tuning.
+
+### [A Simple and Effective Pruning Approach for Large Language Models](https://arxiv.org/abs/2306.11695)
+
+**Mingjie Sun et al.** • [Efficiency](efficiency.md)
+
+> Prunes using **weight magnitude multiplied by input activation norm**, avoiding weight updates during pruning.
 
 ### [Augmenting Language Models with Long-Term Memory](https://arxiv.org/abs/2306.07174)
 
-**UC Santa Barbara, Microsoft** • `RAG` `Memory`
+**Weizhi Wang et al.** • [Rag](rag.md)
 
-> Decoupled memory module for arbitrarily long histories
+> Uses a **frozen backbone as memory encoder** and a trainable SideNet to retrieve and read cached representations.
 
-### [Wanda: Simple and Effective Pruning](https://arxiv.org/abs/2306.11695)
+### [Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena](https://arxiv.org/abs/2306.05685)
 
-**CMU, Meta** • `Efficiency` `Pruning`
+**Lianmin Zheng et al.** • [Analysis](analysis.md)
 
-> Pruning by weights and activations, no retraining needed
+> Studies **LLM judging, MT-Bench and crowdsourced pairwise Chatbot Arena comparisons**.
 
-### [Extending Context via Positional Interpolation](https://arxiv.org/abs/2306.15595)
+### [AWQ: Activation-aware Weight Quantization for LLM Compression and Acceleration](https://arxiv.org/abs/2306.00978)
 
-**Meta AI** • `RAG` `Context Extension`
+**Ji Lin et al.** • [Efficiency](efficiency.md)
 
-> Position Interpolation extends from 2K to 32K+ tokens
+> Uses activation statistics to identify **quantization-sensitive channels**, then scales channels to reduce low-bit error.
 
-### [Judging LLM-as-a-Judge with MT-Bench](https://arxiv.org/abs/2306.05685)
+### [Let's Verify Step by Step](https://arxiv.org/abs/2305.20050)
 
-**UC Berkeley, UCSD, CMU, Stanford** • `Analysis` `Evaluation`
+**Lightman et al.** • [Reasoning](reasoning.md) [Training](training.md)
 
-> Strong LLMs as reliable judges, creating Chatbot Arena standard
+> Compares **process and outcome supervision** for ranking math solutions and releases PRM800K step labels.
 
-### [AWQ: Activation-aware Weight Quantization](https://arxiv.org/abs/2306.00978)
+### [Direct Preference Optimization: Your Language Model is Secretly a Reward Model](https://arxiv.org/abs/2305.18290)
 
-**MIT, NVIDIA** • `Efficiency` `Quantization`
+**Rafael Rafailov et al.** • [Training](training.md) • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
 
-> Protects critical 1% of weights for better 4-bit accuracy
-
-### [Tree of Thoughts: Deliberate Problem Solving](https://arxiv.org/abs/2305.10601)
-
-**Princeton, Google DeepMind** • `Reasoning` `Structured`
-
-> Tree-structured exploration with backtracking for complex problems
+> Derives an **offline preference objective through the policy’s implicit reward relation**, avoiding a separately fitted reward model and online RL loop.
 
 ### [QLoRA: Efficient Finetuning of Quantized LLMs](https://arxiv.org/abs/2305.14314)
 
-**University of Washington** • `Efficiency` `Training`
+**Tim Dettmers et al.** • [Efficiency](efficiency.md) [Training](training.md)
 
-> 4-bit quantization with LoRA for fine-tuning 65B on single GPU
+> Combined 4-bit quantization with LoRA to enable **fine-tuning of 65B parameter models on a single 48GB GPU**.
 
 ### [RWKV: Reinventing RNNs for the Transformer Era](https://arxiv.org/abs/2305.13048)
 
-**RWKV Foundation** • `Architecture` `Linear RNN`
+**Bo Peng et al.** • [Architectures](architectures.md)
 
-> Parallelizable training with efficient RNN inference
+> Combines parallelizable training with **recurrent decoding and a fixed-size state**.
 
-### [Direct Preference Optimization (DPO)](https://arxiv.org/abs/2305.18290)
+### [Tree of Thoughts: Deliberate Problem Solving with Large Language Models](https://arxiv.org/abs/2305.10601)
 
-**Stanford** • `Training` `Alignment` • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+**Shunyu Yao et al.** • [Reasoning](reasoning.md)
 
-> Simpler alternative to RLHF without separate reward model
+> Searches a **tree of candidate thoughts**, using evaluation and backtracking in tasks such as Game24 and mini crosswords.
 
-### [Language Models Don't Always Say What They Think](https://arxiv.org/abs/2305.04388)
+### [Language Models Don't Always Say What They Think: Unfaithful Explanations in Chain-of-Thought Prompting](https://arxiv.org/abs/2305.04388)
 
-**Anthropic, NYU** • `Analysis` `Faithfulness`
+**Miles Turpin et al.** • [Analysis](analysis.md)
 
-> CoT explanations can be systematically unfaithful to actual reasoning
+> Introduces biasing features that alter answers without being acknowledged in **generated chain-of-thought explanations**.
 
-### [Reflexion: Language Agents with Verbal RL](https://arxiv.org/abs/2303.11366)
+### [Are Emergent Abilities of Large Language Models a Mirage?](https://arxiv.org/abs/2304.15004)
 
-**Northeastern, MIT** • `Reasoning` `Self-Reflection`
+**Rylan Schaeffer, Brando Miranda and Sanmi Koyejo** • [Analysis](analysis.md)
 
-> Agents learn from mistakes through verbose self-reflection
+> Shows how **metric choice can create apparent emergence** in studied tasks and model families.
+
+### [Visual Instruction Tuning](https://arxiv.org/abs/2304.08485)
+
+**Haotian Liu et al.** • [Multimodal](multimodal.md)
+
+> Connects a **CLIP vision encoder to a language model** and trains with synthetic visual instructions.
+
+### [Pythia: A Suite for Analyzing Large Language Models Across Training and Scaling](https://arxiv.org/abs/2304.01373)
+
+**Biderman et al.** • [Analysis](analysis.md) [Training](training.md)
+
+> Releases **model suites, training checkpoints and data-order tooling** for studying learning dynamics and scale.
+
+### [Reflexion: Language Agents with Verbal Reinforcement Learning](https://arxiv.org/abs/2303.11366)
+
+**Noah Shinn et al.** • [Reasoning](reasoning.md)
+
+> Enabled agents to **learn from their mistakes through verbal self-reflection**.
 
 ### [GPT-4 Technical Report](https://arxiv.org/abs/2303.08774)
 
-**OpenAI** • `Multimodal` `Intelligence` • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+**OpenAI et al.** • [Multimodal](multimodal.md) • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
 
-> Large multimodal model with human-level performance on professional exams
+> Documents **GPT-4**, a model accepting image and text inputs with text outputs, alongside capability and safety evaluations.
 
-### [Scaling Monosemanticity: Extracting Interpretable Features](https://transformer-circuits.pub/2024/scaling-monosemanticity/)
+### [Stanford Alpaca: An Instruction-following LLaMA Model](https://github.com/tatsu-lab/stanford_alpaca)
 
-**Anthropic** • `Analysis` `Interpretability`
+**Rohan Taori et al. (Stanford)** • [Training](training.md)
 
-> Sparse autoencoders extract millions of monosemantic features from Claude
+> An **official project resource** demonstrating instruction adaptation of LLaMA using 52K generated examples.
 
-### [GPT-4 Technical Report](https://arxiv.org/abs/2303.08774)
+### [LLaMA: Open and Efficient Foundation Language Models](https://arxiv.org/abs/2302.13971)
 
-**OpenAI** • `Multimodal` • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+**Hugo Touvron et al.** • [Architectures](architectures.md) • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
 
-> Multimodal model with human-level performance on professional exams
+> Releases **LLaMA research-access model weights** and studies data-efficient autoregressive training across several sizes.
 
-### [LLaMA: Open and Efficient Foundation Models](https://arxiv.org/abs/2302.13971)
+### [Hyena Hierarchy: Towards Larger Convolutional Language Models](https://arxiv.org/abs/2302.10866)
 
-**Meta** • `Architecture` `Open Source` • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+**Michael Poli et al.** • [Architectures](architectures.md)
 
-> Democratized access to SOTA LLMs, sparking open-source revolution
+> Proposes **Hyena**, a subquadratic replacement for attention based on long convolutions and data-controlled gating.
 
-### [Hyena Hierarchy: Towards Larger Convolutional LMs](https://arxiv.org/abs/2302.10866)
+### [Toolformer: Language Models Can Teach Themselves to Use Tools](https://arxiv.org/abs/2302.04761)
 
-**Stanford, Hazy Research** • `Architecture` `Subquadratic`
+**Timo Schick et al.** • [Reasoning](reasoning.md)
 
-> Subquadratic attention replacement using long convolutions
+> Uses a few API demonstrations to seed **self-supervised tool-call generation and filtering**, then trains a model to use the retained calls.
 
-### [SparseGPT: Massive Models Can Be Pruned in One-Shot](https://arxiv.org/abs/2301.00774)
+### [BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models](https://arxiv.org/abs/2301.12597)
 
-**IST Austria** • `Efficiency` `Pruning`
+**Li et al.** • [Multimodal](multimodal.md)
 
-> One-shot pruning to 50-60% sparsity without retraining
+> Trains a **Q-Former bridge** between frozen vision and language models in two stages.
+
+### [SparseGPT: Massive Language Models Can Be Accurately Pruned in One-Shot](https://arxiv.org/abs/2301.00774)
+
+**Elias Frantar et al.** • [Efficiency](efficiency.md)
+
+> Uses approximate sparse regression for **one-shot pruning** of large language models, with substantial unstructured sparsity in tested OPT/BLOOM models.
 
 ---
 
-## 💡 2022
+## 📅 2022
+
+### [Self-Instruct: Aligning Language Models with Self-Generated Instructions](https://arxiv.org/abs/2212.10560)
+
+**Yizhong Wang et al.** • [Training](training.md)
+
+> Bootstraps **instructions, inputs and responses** from a small human-written seed, filters them and fine-tunes on the resulting synthetic data.
 
 ### [Constitutional AI: Harmlessness from AI Feedback](https://arxiv.org/abs/2212.08073)
 
-**Anthropic** • `Safety` `Alignment` • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+**Yuntao Bai et al. (Anthropic)** • [Training](training.md) [Safety](safety.md) • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
 
-> RLAIF using AI-generated feedback based on constitutional principles
+> Uses constitutional principles for **critique/revision and AI harmlessness preferences**, while retaining human helpfulness feedback.
 
-### [Self-Instruct: Aligning with Self-Generated Instructions](https://arxiv.org/abs/2212.10560)
+### [Fast Inference from Transformers via Speculative Decoding](https://arxiv.org/abs/2211.17192)
 
-**University of Washington** • `Training` `Instruction`
+**Yaniv Leviathan et al.** • [Efficiency](efficiency.md)
 
-> Bootstraps from small seed set using self-generated instructions
+> Uses a **draft model and parallel target-model verification** with a distribution-preserving correction procedure.
 
-### [Holistic Evaluation of Language Models (HELM)](https://arxiv.org/abs/2211.09110)
+### [Holistic Evaluation of Language Models](https://arxiv.org/abs/2211.09110)
 
-**Stanford** • `Analysis` `Evaluation`
+**Percy Liang et al.** • [Analysis](analysis.md)
 
-> Multi-dimensional evaluation across accuracy, robustness, fairness, efficiency
+> Proposed **HELM**, a framework for evaluating LLMs across multiple dimensions simultaneously—accuracy, calibration, robustness, fairness, efficiency, and more.
 
-### [BLOOM: 176B-Parameter Open-Access Multilingual Model](https://arxiv.org/abs/2211.05100)
+### [BLOOM: A 176B-Parameter Open-Access Multilingual Language Model](https://arxiv.org/abs/2211.05100)
 
-**BigScience Workshop** • `Architecture` `Open Science` • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+**BigScience Workshop et al.** • [Architectures](architectures.md) • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
 
-> Collaborative effort with 1000+ researchers for open multilingual model
+> An **official report on BLOOM**, a 176B multilingual model developed through the BigScience collaboration.
 
-### [Scaling Instruction-Finetuned LMs (Flan-T5/PaLM)](https://arxiv.org/abs/2210.11416)
+### [GPTQ: Accurate Post-Training Quantization for Generative Pre-trained Transformers](https://arxiv.org/abs/2210.17323)
 
-**Google** • `Training` `Instruction`
+**Elias Frantar et al.** • [Efficiency](efficiency.md)
 
-> Instruction tuning benefits scale with model size and task count
+> Uses approximate second-order information for **one-shot, layer-wise weight quantization**.
 
-### [GPTQ: Accurate Post-Training Quantization](https://arxiv.org/abs/2210.17323)
+### [Scaling Instruction-Finetuned Language Models](https://arxiv.org/abs/2210.11416)
 
-**IST Austria** • `Efficiency` `Quantization`
+**Hyung Won Chung et al. (Google)** • [Training](training.md)
 
-> One-shot 3-4 bit quantization enabling local LLM deployment
+> Scaled instruction tuning to 1,800+ tasks and demonstrated that **instruction tuning benefits scale with both model size and number of tasks**.
 
-### [ReAct: Synergizing Reasoning and Acting](https://arxiv.org/abs/2210.03629)
+### [Scaling Laws for Reward Model Overoptimization](https://arxiv.org/abs/2210.10760)
 
-**Princeton, Google** • `Reasoning` `Agents`
+**Gao, Schulman & Hilton** • [Analysis](analysis.md) [Training](training.md)
 
-> Interleaves reasoning traces with actions for better decision-making
+> Measures how stronger optimization of an imperfect **proxy reward** can eventually reduce a synthetic gold-model reward under best-of-N and PPO.
+
+### [ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629)
+
+**Shunyu Yao et al.** • [Reasoning](reasoning.md)
+
+> Interleaves **reasoning traces, actions and observations** in knowledge and decision tasks.
 
 ### [Emergent Abilities of Large Language Models](https://arxiv.org/abs/2206.07682)
 
-**Google, DeepMind, Stanford, UNC** • `Analysis` `Emergence` • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+**Jason Wei et al.** • [Analysis](analysis.md) • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
 
-> Formalized emergent abilities appearing unpredictably at scale
+> Catalogues **emergent abilities as measured on selected tasks**, where scores appear abruptly with scale.
 
-### [Beyond the Imitation Game: BIG-bench](https://arxiv.org/abs/2206.04615)
+### [Beyond the Imitation Game: Quantifying and extrapolating the capabilities of language models](https://arxiv.org/abs/2206.04615)
 
-**Google, et al.** • `Analysis` `Evaluation`
+**Aarohi Srivastava et al. (BIG-bench collaboration)** • [Analysis](analysis.md)
 
-> 200+ tasks from 450+ researchers probing beyond standard benchmarks
+> Introduces **BIG-bench**, a collaborative collection of over 200 tasks probing diverse language-model capabilities.
 
-### [CogVideo: Text-to-Video Generation via Transformers](https://arxiv.org/abs/2205.15868)
+### [CogVideo: Large-scale Pretraining for Text-to-Video Generation via Transformers](https://arxiv.org/abs/2205.15868)
 
-**Tsinghua, BAAI** • `Multimodal` `Video`
+**Wenyi Hong et al.** • [Multimodal](multimodal.md)
 
-> Large-scale text-to-video generation with temporal consistency
+> Adapts a text-to-image model through **multi-frame-rate hierarchical video training**.
 
-### [FlashAttention: Fast and Memory-Efficient Exact Attention](https://arxiv.org/abs/2205.14135)
+### [FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness](https://arxiv.org/abs/2205.14135)
 
-**Stanford** • `Efficiency` `Attention` • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+**Tri Dao et al.** • [Efficiency](efficiency.md) • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
 
-> IO-aware attention 2-4x faster with 5-20x less memory
+> Computes **exact attention with an IO-aware tiled algorithm**, reducing transfers between GPU memory and on-chip SRAM.
+
+### [Large Language Models are Zero-Shot Reasoners](https://arxiv.org/abs/2205.11916)
+
+**Kojima et al.** • [Reasoning](reasoning.md) • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+> Uses a **reasoning instruction followed by answer extraction** without worked demonstrations.
+
+### [Flamingo: a Visual Language Model for Few-Shot Learning](https://arxiv.org/abs/2204.14198)
+
+**Jean-Baptiste Alayrac et al. (DeepMind)** • [Multimodal](multimodal.md)
+
+> Introduced **Flamingo**, a family of visual language models capable of rapid adaptation to new tasks from just a few examples.
+
+### [Hierarchical Text-Conditional Image Generation with CLIP Latents](https://arxiv.org/abs/2204.06125)
+
+**Aditya Ramesh et al.** • [Multimodal](multimodal.md)
+
+> Generates **CLIP image latents from text, then decodes them with a diffusion model**.
 
 ### [PaLM: Scaling Language Modeling with Pathways](https://arxiv.org/abs/2204.02311)
 
-**Google** • `Architecture` `Performance` • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+**Aakanksha Chowdhery et al.** • [Architectures](architectures.md) • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
 
-> 540B parameters achieving SOTA with breakthrough reasoning capabilities
+> Reports **PaLM**, a 540B dense model trained with Pathways, and evaluates few-shot language and reasoning tasks.
 
-### [Flamingo: Visual Language Model for Few-Shot Learning](https://arxiv.org/abs/2204.14198)
+### [Training Compute-Optimal Large Language Models](https://arxiv.org/abs/2203.15556)
 
-**DeepMind** • `Multimodal` `Few-Shot`
+**Jordan Hoffmann et al.** • [Analysis](analysis.md) • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
 
-> Cross-attention between frozen vision and language models
+> Studies **compute-optimal allocation between parameter count and training tokens** under a fixed pretraining budget.
 
-### [DALL-E 2: Hierarchical Text-Conditional Image Generation](https://arxiv.org/abs/2204.06125)
+### [STaR: Bootstrapping Reasoning With Reasoning](https://arxiv.org/abs/2203.14465)
 
-**OpenAI** • `Multimodal` `Generation`
+**Zelikman et al.** • [Training](training.md) [Reasoning](reasoning.md)
 
-> Two-stage system generating photorealistic images from text
+> Iterates **answer-filtered rationale generation and fine-tuning**, using known answers to rationalize failed attempts.
 
-### [Are Emergent Abilities a Mirage?](https://arxiv.org/abs/2304.15004)
+### [VideoMAE: Masked Autoencoders are Data-Efficient Learners for Self-Supervised Video Pre-Training](https://arxiv.org/abs/2203.12602)
 
-**Stanford** • `Analysis` `Critical`
+**Zhan Tong et al.** • [Multimodal](multimodal.md)
 
-> Apparent emergence can be artifact of metric choice
+> Extended masked autoencoding to video, demonstrating that **extremely high masking ratios (90-95%)** work remarkably well for video due to temporal redundancy.
 
-### [Training Compute-Optimal LLMs (Chinchilla)](https://arxiv.org/abs/2203.15556)
+### [Self-Consistency Improves Chain of Thought Reasoning in Language Models](https://arxiv.org/abs/2203.11171)
 
-**DeepMind** • `Architecture` `Optimization` • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+**Wang et al.** • [Reasoning](reasoning.md) • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
 
-> Smaller models on more data outperform larger models
+> Samples **diverse reasoning paths and aggregates final answers** rather than using a single greedy chain.
 
-### [VideoMAE: Self-Supervised Video Pre-Training](https://arxiv.org/abs/2203.12602)
+### [Training language models to follow instructions with human feedback](https://arxiv.org/abs/2203.02155)
 
-**Nanjing University, Tencent** • `Multimodal` `Video`
+**Long Ouyang et al.** • [Training](training.md) • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
 
-> Extremely high masking ratios (90-95%) work well for video
+> Trains **InstructGPT** through human demonstrations, preference reward modeling and PPO, with a pretraining-mix variant.
 
-### [InstructGPT: Training with Human Feedback](https://arxiv.org/abs/2203.02155)
+### [In-context Learning and Induction Heads](https://transformer-circuits.pub/2022/in-context-learning-and-induction-heads/index.html)
 
-**OpenAI** • `Training` `Alignment` • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+**Catherine Olsson et al. (Anthropic)** • [Analysis](analysis.md)
 
-> Three-step RLHF methodology powering ChatGPT
+> Studies **induction-head circuits** that match and continue repeated patterns, with evidence linking their formation to aspects of in-context learning.
 
-### [Chain-of-Thought Prompting](https://arxiv.org/abs/2201.11903)
+### [Chain-of-Thought Prompting Elicits Reasoning in Large Language Models](https://arxiv.org/abs/2201.11903)
 
-**Google** • `Reasoning` `Prompting` • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+**Jason Wei et al. (Google)** • [Reasoning](reasoning.md) • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
 
-> "Think step-by-step" dramatically improves reasoning without model changes
+> Shows that **worked reasoning demonstrations** can improve arithmetic, commonsense and symbolic tasks without weight updates.
 
-### [LaMDA: Language Models for Dialog](https://arxiv.org/abs/2201.08239)
+### [LaMDA: Language Models for Dialog Applications](https://arxiv.org/abs/2201.08239)
 
-**Google** • `Architecture` `Dialogue` • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+**Romal Thoppilan et al.** • [Architectures](architectures.md) • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
 
-> Pre-trained on dialogue data for open-ended conversations
-
----
-
-## 🧮 2021
-
-### [Stable Diffusion: Latent Diffusion Models](https://arxiv.org/abs/2112.10752)
-
-**LMU Munich, Runway** • `Multimodal` `Generation`
-
-> Diffusion in compressed latent space for efficient high-res generation
-
-### [Scaling Language Models: Training Gopher](https://arxiv.org/abs/2112.11446)
-
-**DeepMind** • `Architecture` `Scaling` • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
-
-> Comprehensive 280B parameter analysis across 152 tasks
-
-### [Finetuned Language Models are Zero-Shot Learners (FLAN)](https://arxiv.org/abs/2109.01652)
-
-**Google** • `Training` `Instruction` • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
-
-> Instruction tuning improves zero-shot on unseen tasks
-
-### [On the Opportunities and Risks of Foundation Models](https://arxiv.org/abs/2108.07258)
-
-**Stanford** • `Analysis` `Concept` • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
-
-> Coined "Foundation Models" term with comprehensive analysis
-
-### [Codex: Evaluating LLMs Trained on Code](https://arxiv.org/abs/2107.03374)
-
-**OpenAI** • `Architecture` `Code` • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
-
-> Demonstrated code reasoning abilities, led to GitHub Copilot
-
-### [LoRA: Low-Rank Adaptation of LLMs](https://arxiv.org/abs/2106.09685)
-
-**Microsoft** • `Training` `PEFT` • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
-
-> Efficient fine-tuning with 10,000x fewer parameters
-
-### [Switch Transformers: Scaling to Trillion Parameters](https://arxiv.org/abs/2101.03961)
-
-**Google** • `Architecture` `MoE` • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
-
-> Sparse MoE enabling trillion-parameter models
-
-### [Prefix-Tuning: Optimizing Continuous Prompts](https://arxiv.org/abs/2101.00190)
-
-**Stanford** • `Training` `PEFT`
-
-> Trainable continuous prefixes keeping LLM frozen
-
-### [Learning Transferable Visual Models (CLIP)](https://arxiv.org/abs/2103.00020)
-
-**OpenAI** • `Multimodal` `Foundation` • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
-
-> Joint embedding space enabling zero-shot visual classification
-
----
-
-## 📈 2020
-
-### [Language Models are Few-Shot Learners (GPT-3)](https://arxiv.org/abs/2005.14165)
-
-**OpenAI** • `Architecture` `Emergence` • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
-
-> Proved scale unlocks emergent in-context learning abilities
-
-### [REALM: Retrieval-Augmented LM Pre-Training](https://arxiv.org/abs/2002.08909)
-
-**Google Research** • `RAG` `Pre-training`
-
-> Pre-training with retrieval for learning to use external knowledge
-
-### [Retrieval-Augmented Generation for Knowledge-Intensive NLP](https://arxiv.org/abs/2005.11401)
-
-**Facebook AI, UCL, NYU** • `RAG` `Architecture` • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
-
-> Foundational RAG combining parametric and non-parametric memory
-
-### [Scaling Laws for Neural Language Models](https://arxiv.org/abs/2001.08361)
-
-**OpenAI** • `Analysis` `Scaling` • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
-
-> Established predictable power-law scaling relationships
-
-### [Measuring Massive Multitask Language Understanding (MMLU)](https://arxiv.org/abs/2009.03300)
-
-**UC Berkeley** • `Analysis` `Benchmark`
-
-> Comprehensive benchmark across 57 subjects
+> An **official LaMDA dialogue-model report**, combining web/dialogue pretraining, fine-tuning and tools for factual grounding.
 
 ### [Memorizing Transformers](https://arxiv.org/abs/2203.08913)
 
-**Google Research** • `RAG` `Memory`
+**Yuhuai Wu, Markus N. Rabe, DeLesley Hutchins and Christian Szegedy (Google)** • [Rag](rag.md)
 
-> kNN-based external memory for attending over past activations
+> Augmented Transformers with a **kNN-based external memory** that stores and retrieves past key-value pairs.
 
 ---
 
-## 🚀 2019
+## 📅 2021
 
-### [Exploring Transfer Learning with T5](https://arxiv.org/abs/1910.10683)
+### [A Mathematical Framework for Transformer Circuits](https://transformer-circuits.pub/2021/framework/index.html)
 
-**Google** • `Architecture` `Framework` • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+**Nelson Elhage et al. (Anthropic)** • [Analysis](analysis.md)
 
-> Unified text-to-text framework for all NLP tasks
+> An **author research article** developing a circuit view of attention-only Transformers, including residual streams and information movement through heads.
 
-### [ZeRO: Memory Optimizations Toward Trillion Parameters](https://arxiv.org/abs/1910.02054)
+### [High-Resolution Image Synthesis with Latent Diffusion Models](https://arxiv.org/abs/2112.10752)
 
-**Microsoft** • `Efficiency` `Memory` • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+**Robin Rombach et al.** • [Multimodal](multimodal.md)
 
-> Partitioning model states enabling trillion-parameter training
+> Moves **diffusion into a learned compressed latent space**, reducing the cost of high-resolution image synthesis and supporting conditional generation.
 
-### [Megatron-LM: Training Multi-Billion Parameter Models](https://arxiv.org/abs/1909.08053)
+### [Scaling Language Models: Methods, Analysis & Insights from Training Gopher](https://arxiv.org/abs/2112.11446)
 
-**NVIDIA** • `Architecture` `Engineering` • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+**Jack W. Rae et al.** • [Analysis](analysis.md) • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
 
-> Tensor and pipeline parallelism for multi-billion parameter models
+> An **official Gopher report** studying a 280B model across a broad task suite.
 
-### [Language Models are Unsupervised Multitask Learners (GPT-2)](https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf)
+### [Training Verifiers to Solve Math Word Problems](https://arxiv.org/abs/2110.14168)
 
-**OpenAI** • `Architecture` `Zero-Shot` • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+**Cobbe et al.** • [Reasoning](reasoning.md) [Analysis](analysis.md) • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
 
-> Demonstrated zero-shot task performance through scaling
+> Introduces **GSM8K and learned verification** to select among sampled math solutions.
+
+### [Finetuned Language Models Are Zero-Shot Learners](https://arxiv.org/abs/2109.01652)
+
+**Jason Wei et al. (Google)** • [Training](training.md) • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+> Fine-tunes a language model on **tasks expressed through natural-language instructions** and evaluates held-out task families.
+
+### [On the Opportunities and Risks of Foundation Models](https://arxiv.org/abs/2108.07258)
+
+**Rishi Bommasani et al.** • [Analysis](analysis.md) • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+> A **research report and perspective** defining foundation models and examining adaptation, homogenization and societal risks.
+
+### [Evaluating Large Language Models Trained on Code](https://arxiv.org/abs/2107.03374)
+
+**Mark Chen et al. (OpenAI)** • [Reasoning](reasoning.md) • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+> Studies **Codex code generation** and introduces HumanEval with execution-based functional correctness and sampling metrics.
+
+### [LoRA: Low-Rank Adaptation of Large Language Models](https://arxiv.org/abs/2106.09685)
+
+**Edward J. Hu et al.** • [Training](training.md) • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+> Freezes pretrained weights and trains **low-rank updates** to selected weight matrices.
 
 ### [RoFormer: Enhanced Transformer with Rotary Position Embedding](https://arxiv.org/abs/2104.09864)
 
-**Zhuiyi Technology** • `Architecture` `Position Encoding`
+**Jianlin Su et al.** • [Rag](rag.md)
 
-> RoPE becoming standard for modern LLMs and context extension
+> Introduces **rotary positional embeddings (RoPE)**, combining absolute rotations with relative-position effects in attention scores.
 
-### [Universal Adversarial Triggers for Attacking NLP](https://arxiv.org/abs/1908.07125)
+### [Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity](https://arxiv.org/abs/2101.03961)
 
-**UC Berkeley, UMD** • `Safety` `Attacks`
+**William Fedus, Barret Zoph and Noam Shazeer (Google)** • [Architectures](architectures.md) • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
 
-> Short sequences causing models to produce attacker-chosen outputs
+> Simplifies sparse MoE routing to **one selected expert per token**, with training and load-balancing methods for large models.
 
-### [Fast Inference via Speculative Decoding](https://arxiv.org/abs/2211.17192)
+### [Learning Transferable Visual Models From Natural Language Supervision](https://arxiv.org/abs/2103.00020)
 
-**Google** • `Efficiency` `Inference`
+**Alec Radford et al. (OpenAI)** • [Multimodal](multimodal.md) • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
 
-> Draft model generates candidates verified in parallel, 2-3x speedup
+> Learns **joint image/text embeddings through contrastive supervision** and evaluates zero-shot transfer using text descriptions of categories.
 
----
+### [Prefix-Tuning: Optimizing Continuous Prompts for Generation](https://arxiv.org/abs/2101.00190)
 
-## 🌱 2018
+**Xiang Lisa Li et al.** • [Training](training.md)
 
-### [BERT: Pre-training of Deep Bidirectional Transformers](https://arxiv.org/abs/1810.04805)
-
-**Google** • `Architecture` `Understanding` • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
-
-> Bidirectional pre-training with MLM revolutionizing NLP understanding
-
-### [Improving Language Understanding by Generative Pre-Training (GPT-1)](https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf)
-
-**OpenAI** • `Architecture` `Pre-training` • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
-
-> Established generative pre-training paradigm for language models
+> Learns **continuous prefixes of activations** while keeping the pretrained model frozen.
 
 ---
 
-## 🏗️ 2017
+## 📅 2020
+
+### [Measuring Massive Multitask Language Understanding](https://arxiv.org/abs/2009.03300)
+
+**Dan Hendrycks et al.** • [Analysis](analysis.md)
+
+> Introduces **MMLU**, multiple-choice evaluation across 57 academic and professional subjects.
+
+### [Learning to Summarize from Human Feedback](https://arxiv.org/abs/2009.01325)
+
+**Stiennon et al.** • [Training](training.md)
+
+> Trains a **summary preference model** from human comparisons, then optimizes a summarizer against it.
+
+### [Language Models are Few-Shot Learners](https://arxiv.org/abs/2005.14165)
+
+**Tom B. Brown et al.** • [Architectures](architectures.md) • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+> Evaluated **GPT-3** across zero-, one- and few-shot tasks without task-specific weight updates.
+
+### [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks](https://arxiv.org/abs/2005.11401)
+
+**Patrick Lewis et al.** • [Rag](rag.md) • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+> Combines a **dense retriever with a sequence generator**, marginalizing over retrieved passages for knowledge-intensive tasks.
+
+### [REALM: Retrieval-Augmented Language Model Pre-Training](https://arxiv.org/abs/2002.08909)
+
+**Kelvin Guu et al. (Google Research)** • [Rag](rag.md)
+
+> Pioneered the concept of **pre-training language models with retrieval**.
+
+### [Scaling Laws for Neural Language Models](https://arxiv.org/abs/2001.08361)
+
+**Jared Kaplan et al. (OpenAI)** • [Analysis](analysis.md) • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+> Fits empirical **language-model loss scaling** with parameters, data and compute over measured regimes.
+
+---
+
+## 📅 2019
+
+### [Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer](https://arxiv.org/abs/1910.10683)
+
+**Colin Raffel et al.** • [Architectures](architectures.md) • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+> Studies a **unified text-to-text task format**, pretraining objectives, data and transfer learning in T5.
+
+### [ZeRO: Memory Optimizations Toward Training Trillion Parameter Models](https://arxiv.org/abs/1910.02054)
+
+**Samyam Rajbhandari, Jeff Rasley, Olatunji Ruwase and Yuxiong He (Microsoft)** • [Efficiency](efficiency.md) • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+> Partitions **optimizer states, gradients and parameters** across data-parallel workers to reduce redundant memory.
+
+### [Megatron-LM: Training Multi-Billion Parameter Language Models Using Model Parallelism](https://arxiv.org/abs/1909.08053)
+
+**Mohammad Shoeybi et al.** • [Efficiency](efficiency.md) [Training](training.md) • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+> Introduces efficient **intra-layer tensor model parallelism** for multi-billion-parameter Transformer training.
+
+### [Universal Adversarial Triggers for Attacking and Analyzing NLP](https://arxiv.org/abs/1908.07125)
+
+**Eric Wallace et al.** • [Safety](safety.md)
+
+> Finds **input-agnostic adversarial token triggers** that degrade tested NLP systems and expose learned associations.
+
+### [Language Models are Unsupervised Multitask Learners](https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf)
+
+**Alec Radford et al. (OpenAI)** • [Architectures](architectures.md) • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+> An **official GPT-2 report** evaluating autoregressive language modeling as unsupervised multitask learning.
+
+### [Transformer-XL: Attentive Language Models Beyond a Fixed-Length Context](https://arxiv.org/abs/1901.02860)
+
+**Dai et al.** • [Rag](rag.md) [Architectures](architectures.md) • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+> Combines **segment-level recurrence and relative positional encoding** to reuse prior hidden states beyond a fixed training segment.
+
+---
+
+## 📅 2018
+
+### [BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding](https://arxiv.org/abs/1810.04805)
+
+**Jacob Devlin et al. (Google)** • [Architectures](architectures.md) • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+> Pretrains a **bidirectional Transformer encoder** with masked-language modeling and a sentence-level objective, then adapts it to downstream tasks.
+
+### [Improving Language Understanding by Generative Pre-Training](https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf)
+
+**Alec Radford, Karthik Narasimhan, Tim Salimans and Ilya Sutskever** • [Architectures](architectures.md) • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+> Studies **generative pretraining on BooksCorpus followed by task-specific supervised adaptation** in GPT-1.
+
+---
+
+## 📅 2017
+
+### [Deep Contextualized Word Representations](https://arxiv.org/abs/1802.05365)
+
+**Peters et al.** • [Training](training.md) [Architectures](architectures.md) • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+> **ELMo** combines internal layers of a bidirectional language model into context-dependent word representations for downstream systems.
+
+### [Deep reinforcement learning from human preferences](https://arxiv.org/abs/1706.03741)
+
+**Paul Christiano et al.** • [Training](training.md) • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+> Learns **reward models from human comparisons of trajectory segments** and uses them to train deep-RL agents.
 
 ### [Attention Is All You Need](https://arxiv.org/abs/1706.03762)
 
-**Google** • `Architecture` `Foundation` • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+**Ashish Vaswani et al.** • [Architectures](architectures.md) • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
 
-> Created Transformer architecture, foundation of all modern LLMs
+> Introduced the attention-based **Transformer** for sequence transduction, removing recurrent and convolutional sequence layers.
 
-### [Deep RL from Human Preferences](https://arxiv.org/abs/1706.03741)
+### [Outrageously Large Neural Networks: The Sparsely-Gated Mixture-of-Experts Layer](https://arxiv.org/abs/1701.06538)
 
-**OpenAI, DeepMind** • `Training` `Alignment` • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+**Shazeer et al.** • [Architectures](architectures.md) [Training](training.md) • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
 
-> Foundational RLHF framework learning from human preferences
-
----
-
-<div align="center">
-
-## 🌟 Contributing
-
-Found a missing paper? [Submit it here](https://github.com/puneet-chandna/awesome-LLM-papers/issues/new)!
+> Introduces a **sparsely gated expert layer** that activates a small subset of networks per input.
 
 ---
 
-⭐ If you find this index helpful, please star the repository!
+## 📅 2014
 
-**[⬆ Back to Top](#-all-papers---chronological-index)**
+### [Neural Machine Translation by Jointly Learning to Align and Translate](https://arxiv.org/abs/1409.0473)
 
-</div>
+**Bahdanau, Cho & Bengio** • [Architectures](architectures.md)
+
+> Learns **soft alignment over encoder states** while generating translations, addressing a fixed-vector bottleneck.
+
+---
+
+## 📅 2000
+
+### [A Neural Probabilistic Language Model](https://jmlr.org/papers/v3/bengio03a.html)
+
+**Bengio, Ducharme & Vincent (NIPS 2000); with Jauvin (JMLR 2003)** • [Architectures](architectures.md) [Training](training.md) • ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+> Learns distributed word representations jointly with a **neural next-word predictor**, sharing statistical strength across similar word sequences.
+
+---
+
+[← Browse the collection](../README.md) · [Suggest a paper or correction](../CONTRIBUTING.md)

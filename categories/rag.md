@@ -3,10 +3,10 @@
 <div align="center">
 
 [![Awesome](https://awesome.re/badge-flat2.svg)](https://awesome.re)
-[![Papers](https://img.shields.io/badge/Papers-14+-blue.svg)](https://github.com)
-[![Years](https://img.shields.io/badge/Years-2020--2025-green.svg)](https://github.com)
-[![License: CC0](https://img.shields.io/badge/License-CC0-yellow.svg)](https://opensource.org/licenses/CC0-1.0)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+[![Works](https://img.shields.io/badge/Works-17-blue.svg)](all-papers.md)
+[![Years](https://img.shields.io/badge/Years-2019--2025-green.svg)](all-papers.md)
+[![License: CC0](https://img.shields.io/badge/License-CC0-yellow.svg)](../LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](../CONTRIBUTING.md)
 
 ### Papers on retrieval-augmented generation, long context modeling, and memory-augmented systems
 
@@ -28,28 +28,34 @@ _From foundational RAG architectures to million-token context windows and persis
 
 ### 📄 [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks](https://arxiv.org/abs/2005.11401) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
 
-**Authors:** Lewis et al. (Facebook AI, UCL, NYU)  
+**Authors:** Patrick Lewis et al.<br>
 **Contribution:** `🔍 RAG Architecture`
 
-> The foundational **RAG paper** that introduced the paradigm of combining parametric (neural network) and non-parametric (retrieval) memory. By retrieving relevant documents from a knowledge base and conditioning generation on them, RAG models can access and leverage external knowledge without storing everything in model parameters, dramatically improving factual accuracy and enabling knowledge updates without retraining.
+> Combines a **dense retriever with a sequence generator**, marginalizing over retrieved passages for knowledge-intensive tasks. The paper establishes an influential RAG formulation alongside earlier retrieval-enhanced work; retrieval can support factuality but does not guarantee it.
+
+---
 
 ### 📄 [REALM: Retrieval-Augmented Language Model Pre-Training](https://arxiv.org/abs/2002.08909)
 
-**Authors:** Guu et al. (Google Research)  
+**Authors:** Kelvin Guu et al. (Google Research)<br>
 **Contribution:** `🎓 Pre-training with Retrieval`
 
 > Pioneered the concept of **pre-training language models with retrieval**. REALM learns to retrieve documents that help predict masked tokens during pre-training, creating a model that inherently knows how to use external knowledge. This end-to-end approach to learning retrieval alongside language modeling laid crucial groundwork for modern RAG systems.
 
+---
+
 ### 📄 [Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection](https://arxiv.org/abs/2310.11511)
 
-**Authors:** Asai et al. (University of Washington, IBM Research)  
+**Authors:** Akari Asai et al.<br>
 **Contribution:** `🪞 Self-Reflective RAG` 🆕
 
-> Introduced a framework where the model learns to **adaptively retrieve and self-critique** its outputs. Self-RAG trains a single LM to generate special reflection tokens that decide when to retrieve, assess relevance of retrieved passages, and critique its own generations. This self-reflective approach significantly improves factuality and citation accuracy over standard RAG.
+> Trains a model to generate **retrieval and reflection tokens**, allowing adaptive retrieval and assessment of passages and answers. Self-RAG studies improved factuality and citation quality in selected tasks; learned critique is a useful signal rather than a correctness guarantee.
+
+---
 
 ### 📄 [RAPTOR: Recursive Abstractive Processing for Tree-Organized Retrieval](https://arxiv.org/abs/2401.18059)
 
-**Authors:** Sarthi et al. (Stanford University)  
+**Authors:** Parth Sarthi et al.<br>
 **Contribution:** `🌳 Hierarchical Retrieval` 🆕
 
 > Proposed a novel approach to organizing retrieved information in a **hierarchical tree structure**. RAPTOR recursively clusters and summarizes text chunks, creating multi-level abstractions that enable retrieval at different granularities. This allows the model to answer questions requiring both fine-grained details and high-level synthesis across large document collections.
@@ -60,31 +66,55 @@ _From foundational RAG architectures to million-token context windows and persis
 
 ### 📄 [RoFormer: Enhanced Transformer with Rotary Position Embedding](https://arxiv.org/abs/2104.09864)
 
-**Authors:** Su et al. (Zhuiyi Technology)  
+**Authors:** Jianlin Su et al.<br>
 **Contribution:** `🔄 Position Encoding`
 
-> Introduced **Rotary Position Embedding (RoPE)**, a revolutionary approach to encoding positional information in Transformers. RoPE encodes positions through rotation matrices, naturally capturing relative positions while being compatible with linear attention. This technique has become the de facto standard for modern LLMs and is crucial for extending context lengths through interpolation methods.
+> Introduces **rotary positional embeddings (RoPE)**, combining absolute rotations with relative-position effects in attention scores. RoFormer supplies the mathematical foundation for a widely reused positional scheme; extending context still needs suitable training and evaluation.
+
+---
 
 ### 📄 [LongLoRA: Efficient Fine-tuning of Long-Context Large Language Models](https://arxiv.org/abs/2309.12307)
 
-**Authors:** Chen et al. (CUHK, MIT)  
+**Authors:** Yukang Chen et al.<br>
 **Contribution:** `⚡ Efficient Long Context` 🆕
 
-> Developed an efficient method to **extend context windows** of pre-trained LLMs with minimal computational cost. LongLoRA combines shifted sparse attention during training with LoRA for parameter efficiency, enabling extension to 100k+ tokens while using a fraction of the compute required by full fine-tuning. This democratized long-context capabilities for the research community.
+> Combines **shifted sparse attention during fine-tuning** with parameter-efficient adaptation for long context. LongLoRA also trains embeddings and normalization parameters; sparse training does not imply the same attention pattern at inference.
+
+---
 
 ### 📄 [Ring Attention with Blockwise Transformers for Near-Infinite Context](https://arxiv.org/abs/2310.01889)
 
-**Authors:** Liu et al. (UC Berkeley)  
+**Authors:** Hao Liu et al.<br>
 **Contribution:** `♾️ Infinite Context` 🆕
 
-> Introduced **Ring Attention**, a technique that enables training and inference on sequences of virtually unlimited length by distributing attention computation across multiple devices in a ring topology. By overlapping communication with computation and using blockwise attention, it removes memory constraints as a bottleneck, enabling context windows in the millions of tokens.
+> Distributes blockwise attention across devices in a **ring**, overlapping computation with communication. Longer sequences become feasible as device resources grow; memory, communication and arithmetic costs still bound the achievable context.
+
+---
 
 ### 📄 [Extending Context Window of Large Language Models via Positional Interpolation](https://arxiv.org/abs/2306.15595)
 
-**Authors:** Chen et al. (Meta AI)  
+**Authors:** Shouyuan Chen et al. (Meta AI)<br>
 **Contribution:** `📐 Context Extension` 🆕
 
-> Proposed **Position Interpolation (PI)**, a simple yet effective method to extend the context window of RoPE-based LLMs. Instead of extrapolating positions beyond training, PI downscales position indices to fit within the original range. This elegant approach enables extending context from 2K to 32K+ tokens with minimal fine-tuning, becoming a standard technique for context extension.
+> Extends RoPE-based context through **position interpolation**, mapping positions back into the original range before fine-tuning. The paper studies 2,048 → 32,768 tokens; extended capacity still needs task-specific utilization and quality checks.
+
+---
+
+### 📄 [Transformer-XL: Attentive Language Models Beyond a Fixed-Length Context](https://arxiv.org/abs/1901.02860) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** Dai et al.<br>
+**Contribution:** `🔁 Segment Recurrence`
+
+> Combines **segment-level recurrence and relative positional encoding** to reuse prior hidden states beyond a fixed training segment. It explains context fragmentation and recurrent reuse; finite cached states and memory costs still constrain context.
+
+---
+
+### 📄 [Lost in the Middle: How Language Models Use Long Contexts](https://arxiv.org/abs/2307.03172)
+
+**Authors:** Liu et al.<br>
+**Contribution:** `📍 Context Utilization`
+
+> Varies relevant-information position in **multi-document QA and key-value retrieval**, finding weaker use of middle positions in many tested models. Context capacity is not context utilization; these 2023 model versions motivate retesting rather than a permanent verdict on every long-context model.
 
 ---
 
@@ -92,45 +122,64 @@ _From foundational RAG architectures to million-token context windows and persis
 
 ### 📄 [MemGPT: Towards LLMs as Operating Systems](https://arxiv.org/abs/2310.08560)
 
-**Authors:** Packer et al. (UC Berkeley)  
+**Authors:** Charles Packer et al.<br>
 **Contribution:** `💾 Virtual Memory` 🆕
 
-> Introduced a paradigm-shifting approach that treats LLM context as a **virtual memory system**. MemGPT manages context like an OS manages memory, with a hierarchy of main context (fast, limited) and external storage (slow, unlimited). The LLM learns to page information in and out, enabling unbounded conversation history and document analysis within fixed context windows.
+> Treats context as a **managed memory hierarchy**, paging between a bounded prompt and external storage. MemGPT studies document analysis and conversation memory; external capacity and reliable retrieval are different properties.
+
+---
 
 ### 📄 [Memorizing Transformers](https://arxiv.org/abs/2203.08913)
 
-**Authors:** Wu et al. (Google Research)  
+**Authors:** Yuhuai Wu, Markus N. Rabe, DeLesley Hutchins and Christian Szegedy (Google)<br>
 **Contribution:** `🗄️ External Memory`
 
 > Augmented Transformers with a **kNN-based external memory** that stores and retrieves past key-value pairs. This approach allows the model to attend over a massive corpus of past activations without increasing computational cost proportionally. The technique demonstrated significant improvements on language modeling tasks, especially for rare patterns and long-range dependencies.
 
+---
+
 ### 📄 [Augmenting Language Models with Long-Term Memory](https://arxiv.org/abs/2306.07174)
 
-**Authors:** Wang et al. (UC Santa Barbara, Microsoft)  
+**Authors:** Weizhi Wang et al.<br>
 **Contribution:** `🧠 Long-Term Memory` 🆕
 
-> Proposed **LongMem**, a framework for augmenting LLMs with a decoupled long-term memory module. The system uses a frozen backbone LLM with a trainable memory encoder and retriever, enabling the model to access information from arbitrarily long histories. This architecture allows for efficient memory updates and retrieval without modifying the base model.
+> Uses a **frozen backbone as memory encoder** and a trainable SideNet to retrieve and read cached representations. LongMem separates storage from adaptation to reduce stale-memory issues; retrieval, storage and side-network training remain costs.
+
+---
 
 ### 📄 [Leave No Context Behind: Efficient Infinite Context Transformers with Infini-attention](https://arxiv.org/abs/2404.07143)
 
-**Authors:** Munkhdalai et al. (Google)  
+**Authors:** Tsendsuren Munkhdalai et al.<br>
 **Contribution:** `∞ Compressive Memory` 🆕
 
-> Introduced **Infini-attention**, which combines local attention with a compressive memory mechanism in a single Transformer block. The approach maintains a compressed representation of the entire history while performing standard attention on local context. This enables processing of infinitely long sequences with bounded memory and compute, achieving strong results on long-context benchmarks.
+> Combines **local attention and compressive memory** to process successive segments with bounded working memory. Infini-attention can extend the processed sequence, but total computation grows with input length and compressed history can lose detail.
 
-### 📄 [GraphRAG: Unlocking LLM Discovery on Narrative Private Data](https://arxiv.org/abs/2404.16130) 🆕
+---
 
-**Authors:** Microsoft  
+### 📄 [From Local to Global: A Graph RAG Approach to Query-Focused Summarization](https://arxiv.org/abs/2404.16130)
+
+**Authors:** Darren Edge et al. (Microsoft)<br>
 **Contribution:** `🕸️ Knowledge Graph RAG`
 
-> Moves beyond simple vector similarity search by **building a knowledge graph from data first**, then using it for retrieval. GraphRAG constructs entity-relationship graphs and community summaries, allowing LLMs to answer "global" questions (e.g., "What are the main themes in this dataset?") that standard RAG fails at. Particularly effective for complex reasoning over large private document collections where understanding relationships between concepts is crucial.
+> Builds entity graphs and hierarchical community summaries for **global, query-focused summarization**. It improves coverage and diversity in the authors’ comparison with conventional RAG; graph construction and summarization add cost, and benefits depend on the corpus and question type.
 
-### 📄 [Retrieval Augmented Generation or Long-Context LLMs? A Comprehensive Study](https://arxiv.org/abs/2407.16833) 🆕
+---
 
-**Authors:** Li et al. (EMNLP 2024/2025)  
+### 📄 [Retrieval Augmented Generation or Long-Context LLMs? A Comprehensive Study and Hybrid Approach](https://arxiv.org/abs/2407.16833)
+
+**Authors:** Zhuowan Li et al.<br>
 **Contribution:** `🔬 RAG vs Long-Context`
 
-> The definitive study answering: **"Do we still need RAG if models have 1M+ context?"** Through comprehensive experiments, the paper shows that while long-context models are powerful, RAG remains far cheaper and often more accurate for "needle-in-a-haystack" retrieval tasks. Provides empirical guidance on when to use each approach: RAG for specific fact retrieval, long context for deep document understanding.
+> Compares retrieval-augmented generation with long-context models. With sufficient resources, **long context performs better on average in the tested setups**, while RAG is substantially cheaper; Self-Route combines the approaches. Model, retrieval quality, task and budget determine the trade-off.
+
+---
+
+### 📄 [Recursive Language Models](https://arxiv.org/abs/2512.24601)
+
+**Authors:** Zhang, Kraska & Khattab<br>
+**Contribution:** `🔁 Context as Environment`
+
+> Exposes a long input through a **programmable environment** and allows recursive model calls over selected pieces. RLM studies managing context outside a single prompt; recursion is not always beneficial, and call costs and latency have long tails.
 
 ---
 

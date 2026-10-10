@@ -1,143 +1,82 @@
 # GPT-3: Language Models are Few-Shot Learners - Detailed Summary
 
-📄 **Paper:** [Language Models are Few-Shot Learners](https://arxiv.org/abs/2005.14165)  
-👥 **Authors:** Tom B. Brown, Benjamin Mann, Nick Ryder, Melanie Subbiah, et al. (31 authors)  
-🏛️ **Institution:** OpenAI  
-📅 **Published:** May 2020 (NeurIPS 2020)
+📄 **Paper:** [Language Models are Few-Shot Learners](https://arxiv.org/abs/2005.14165)<br>
+👥 **Authors:** Tom B. Brown, Benjamin Mann, Nick Ryder, Melanie Subbiah, et al. · OpenAI<br>
+📅 **First public version:** May 2020 · NeurIPS 2020
 
 ---
 
 ## 🎯 One-Line Summary
 
-Demonstrated that scaling language models to 175 billion parameters enables strong few-shot learning without fine-tuning, revolutionizing how we interact with LLMs.
-
-## 🔍 Problem Statement
-
-Previous language models required:
-
-- Task-specific fine-tuning for each new application
-- Large labeled datasets for every task
-- Expensive retraining for new domains
-- Limited generalization across tasks
+GPT-3 evaluates whether large autoregressive models can perform tasks from prompt examples without task-specific gradient updates.
 
 ## 💡 Key Innovation: Scale + In-Context Learning
 
-### The GPT-3 Model Family:
+| Setting | Prompt supplies | Evaluation weight update |
+| :-- | :-- | :-- |
+| **Zero-shot** | Task description, no demonstrations | None |
+| **One-shot** | One demonstration | None |
+| **Few-shot** | Several demonstrations within context capacity | None |
 
-| Model        | Parameters | Layers | Hidden Size |
-| ------------ | ---------- | ------ | ----------- |
-| GPT-3 Small  | 125M       | 12     | 768         |
-| GPT-3 Medium | 350M       | 24     | 1024        |
-| GPT-3 Large  | 760M       | 24     | 1536        |
-| GPT-3 XL     | 1.3B       | 24     | 2048        |
-| GPT-3 2.7B   | 2.7B       | 32     | 2560        |
-| GPT-3 6.7B   | 6.7B       | 32     | 4096        |
-| **GPT-3**    | **175B**   | **96** | **12288**   |
+### The GPT-3 Model Family
 
-### 1. **Few-Shot Learning**
+[Version 4, Table 2.1](https://arxiv.org/pdf/2005.14165v4):
 
-- Provide 10-100 examples in the prompt
-- Model learns the task pattern from context
-- No gradient updates or fine-tuning required
-
-### 2. **One-Shot Learning**
-
-- Single example demonstrates the task
-- Model generalizes from one instance
-- Useful when examples are limited
-
-### 3. **Zero-Shot Learning**
-
-- Task description in natural language only
-- No examples needed
-- Tests true language understanding
-
-### 4. **Emergent Abilities**
-
-Capabilities that appear only at scale:
-
-- Arithmetic operations
-- Word unscrambling
-- Novel word usage
-- Complex reasoning
+| Model | Parameters | Layers | Hidden size |
+| :-- | --: | --: | --: |
+| Small | 125M | 12 | 768 |
+| Medium | 350M | 24 | 1024 |
+| Large | 760M | 24 | 1536 |
+| XL | 1.3B | 24 | 2048 |
+| 2.7B | 2.7B | 32 | 2560 |
+| 6.7B | 6.7B | 32 | 4096 |
+| 13B | 13B | 40 | 5140 |
+| GPT-3 | 175B | 96 | 12288 |
 
 ## 📊 Results & Impact
 
-### Benchmark Performance:
+The authors evaluate language modeling, question answering, translation, arithmetic and other tasks. Few-shot performance improves with scale on many tested tasks while others remain weak. The study helped establish prompting a general model as an alternative to separate task training.
 
-- **TriviaQA:** 64.3% zero-shot (SOTA without fine-tuning)
-- **LAMBADA:** 76.2% zero-shot (huge improvement)
-- **Translation:** Competitive with supervised models
-- **Question Answering:** Near human-level on some datasets
-- **Code Generation:** Can write functioning code from descriptions
-
-### Why This Changed Everything:
-
-1. **Paradigm Shift:** From fine-tuning to prompting
-2. **Accessibility:** One model for all tasks
-3. **Scalability:** Clear scaling laws emerged
-4. **API Economy:** Foundation for GPT-3 API and ChatGPT
-5. **Emergent Intelligence:** Showed abilities appear suddenly at scale
-
-## 🔮 What Came After
-
-This paper spawned:
-
-- **GPT-3.5** (2022): Foundation for ChatGPT
-- **InstructGPT** (2022): RLHF alignment
-- **GPT-4** (2023): Multimodal reasoning
-- **Codex** (2021): Powering GitHub Copilot
-- **Industry Shift:** Every company building LLM APIs
+**When reading a score:** check zero-/one-/few-shot setup, example count, evaluation split and contamination analysis. Web-trained models can encounter benchmark material during pretraining.
 
 ## 💻 Implementation
 
-```python
-# Few-shot prompting with GPT-3
-prompt = """
-Translate English to French:
+Prompt-format illustration:
 
+```text
+Translate English to French:
 sea otter => loutre de mer
 peppermint => menthe poivrée
-plush giraffe => girafe en peluche
 cheese =>
-"""
-
-# Model completes: "fromage"
-# No fine-tuning needed!
 ```
 
-## 🎯 Scaling Laws Discovered
+The model continues the text; examples do not update its weights. A plausible completion is not guaranteed correct.
 
-Key findings on model performance vs. size:
+## 📏 Relationship to Scaling Laws
 
-- **Power Law Scaling:** Performance ∝ N^α (N = parameters)
-- **No Plateau:** Larger models keep improving
-- **Data Efficiency:** Bigger models learn from fewer examples
-- **Transfer Learning:** Scale improves across all tasks
+[Kaplan et al.](https://arxiv.org/abs/2001.08361) separately studied empirical loss scaling. GPT-3 does not establish unlimited improvement, universal sudden emergence, or that prompting always beats fine-tuning.
 
 ## ⚠️ Limitations & Concerns
 
-- **Cost:** $4-12M training cost, expensive inference
-- **Bias:** Reflects internet training data biases
-- **Hallucinations:** Confident but incorrect outputs
-- **No Citations:** Can't verify factual claims
-- **Energy:** Environmental impact of large-scale training
+- Training and inference are expensive; no dollar cost is inferred from unreported prices.
+- Contamination, bias and unreliable factual outputs complicate evaluation.
+- Strong benchmark scores do not establish general intelligence or reliable multi-step reasoning.
+- Prompt adaptation differs from training an instruction-following assistant.
+
+## 🔮 What Came After
+
+[Codex](https://arxiv.org/abs/2107.03374) studies code models and execution-based evaluation. [InstructGPT](RLHF%20Training%20with%20Human%20Feedback.md) addresses instruction following with demonstrations and preferences.
 
 ## 🎓 Key Takeaways
 
-- Scale is all you need for few-shot learning
-- In-context learning emerges at sufficient scale
-- Prompting > Fine-tuning for general intelligence
-- Bigger models are more sample-efficient
-- The age of "one model, many tasks" has arrived
+Separate pretraining scale, prompt examples and post-training: their effects need different baselines.
 
 ## 📚 Essential Resources
 
-- [Original Paper](https://arxiv.org/abs/2005.14165)
-- [OpenAI API](https://openai.com/api/) - Access GPT-3 and GPT-4
-- [GPT-3 Demo Collection](https://gpt3demo.com) - 100+ applications
-- [The GPT-3 Architecture](https://dugas.ch/artificial_curiosity/GPT_architecture.html) - Visual breakdown
-- [Scaling Laws Paper](https://arxiv.org/abs/2001.08361) - Theoretical foundation
-- [OpenAI Blog Post](https://openai.com/blog/gpt-3-apps) - Official announcement
+- [Original paper and revisions](https://arxiv.org/abs/2005.14165)
+- [Configurations and evaluations — version 4](https://arxiv.org/pdf/2005.14165v4)
+- [Language model families](../categories/architectures.md#-language-model-families)
 
-## 📝 This summary is part of [Awesome LLM Papers](https://github.com/puneet-chandna/awesome-LLM-papers) - Star us for Weekly research updates!
+---
+
+Part of [Awesome LLM Papers](../README.md). Summary reviewed 10 October 2026 against the linked source version.

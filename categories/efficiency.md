@@ -1,7 +1,7 @@
 # Awesome Efficiency & Scaling
 
 [![Awesome](https://awesome.re/badge-flat2.svg)](https://awesome.re)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](../CONTRIBUTING.md)
 
 Essential papers on making LLMs faster, smaller, and more deployable.
 
@@ -14,7 +14,8 @@ _From quantization breakthroughs to attention optimization, these papers enable 
 - [🔢 Quantization](#-quantization)
 - [⚡ Attention Optimization](#-attention-optimization)
 - [🚀 Inference Optimization](#-inference-optimization)
-- [✂️ Pruning & Sparsity](#-pruning--sparsity)
+- [✂️ Pruning & Sparsity](#%EF%B8%8F-pruning--sparsity)
+- [⚙️ Training Efficiency](#%EF%B8%8F-training-efficiency)
 
 ---
 
@@ -22,31 +23,37 @@ _From quantization breakthroughs to attention optimization, these papers enable 
 
 ### 📄 [GPTQ: Accurate Post-Training Quantization for Generative Pre-trained Transformers](https://arxiv.org/abs/2210.17323)
 
-**Authors:** Frantar et al. (IST Austria)  
+**Authors:** Elias Frantar et al.<br>
 **Contribution:** `🔢 Post-Training Quantization`
 
-> Introduced a highly accurate **one-shot weight quantization** method that can compress models to 3-4 bits with minimal accuracy loss. GPTQ uses approximate second-order information to quantize weights layer-by-layer, enabling billion-parameter models to run on consumer GPUs. This breakthrough made local LLM deployment practical for the first time.
+> Uses approximate second-order information for **one-shot, layer-wise weight quantization**. GPTQ demonstrates low-bit compression in evaluated GPT/OPT models; accuracy and speed depend on bit width, calibration and GPU kernels.
+
+---
 
 ### 📄 [QLoRA: Efficient Finetuning of Quantized LLMs](https://arxiv.org/abs/2305.14314)
 
-**Authors:** Dettmers et al. (University of Washington)  
-**Contribution:** `🎯 Efficient Fine-tuning`
+**Authors:** Tim Dettmers et al.<br>
+**Contribution:** `🗜️ Memory Efficiency`
 
-> Combined **4-bit quantization with Low-Rank Adaptation (LoRA)** to enable fine-tuning of 65B parameter models on a single 48GB GPU. QLoRA introduced novel techniques like 4-bit NormalFloat and Double Quantization, reducing memory requirements by up to 75% while matching full 16-bit fine-tuning performance. This democratized LLM customization for researchers with limited compute.
+> Combined 4-bit quantization with LoRA to enable **fine-tuning of 65B parameter models on a single 48GB GPU**. QLoRA introduced innovations like 4-bit NormalFloat quantization and Double Quantization, reducing memory usage without sacrificing performance. This democratized fine-tuning of large models, making it accessible to researchers without massive compute resources.
+
+---
 
 ### 📄 [AWQ: Activation-aware Weight Quantization for LLM Compression and Acceleration](https://arxiv.org/abs/2306.00978)
 
-**Authors:** Lin et al. (MIT, NVIDIA)  
+**Authors:** Ji Lin et al.<br>
 **Contribution:** `🧠 Activation-Aware Compression`
 
-> Proposed an **activation-aware quantization** approach that identifies and protects the most important weights based on activation patterns. AWQ achieves better accuracy than GPTQ at the same bit-width by recognizing that only ~1% of weights are critical for preserving model quality. This insight led to more efficient 4-bit models with minimal degradation.
+> Uses activation statistics to identify **quantization-sensitive channels**, then scales channels to reduce low-bit error. AWQ studies hardware-aware deployment with efficient kernels; accuracy and latency gains depend on calibration, model and device.
 
-### 📄 [The Era of 1-bit LLMs: All Large Language Models Are in 1.58 Bits](https://arxiv.org/abs/2402.17764)
+---
 
-**Authors:** Ma et al. (Microsoft Research)  
+### 📄 [The Era of 1-bit LLMs: All Large Language Models are in 1.58 Bits](https://arxiv.org/abs/2402.17764)
+
+**Authors:** Shuming Ma et al. (Microsoft Research)<br>
 **Contribution:** `🔢 1-bit Quantization`
 
-> 🆕 Introduced **BitNet b1.58**, proving that model weights can be quantized to ternary values {-1, 0, 1} (effectively ~1.58 bits) while matching the performance of full-precision FP16 models. This revolutionary approach eliminates the need for expensive matrix multiplications, replacing them with simple addition operations. Potentially transforms hardware requirements for LLM deployment, enabling massive models to run on resource-constrained devices.
+> Studies **BitNet b1.58**, whose trained weights are ternary (−1, 0, +1) with quantization-aware computation. It presents a low-bit training approach, not evidence that arbitrary pretrained models can be converted to 1.58 bits without retraining or loss.
 
 ---
 
@@ -54,17 +61,19 @@ _From quantization breakthroughs to attention optimization, these papers enable 
 
 ### 📄 [FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness](https://arxiv.org/abs/2205.14135) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
 
-**Authors:** Dao et al. (Stanford)  
+**Authors:** Tri Dao et al.<br>
 **Contribution:** `💾 IO-Aware Algorithm`
 
-> Revolutionized attention computation by making it **IO-aware**, reducing memory reads/writes between GPU high-bandwidth memory and on-chip SRAM. FlashAttention computes exact attention 2-4x faster while using 5-20x less memory than standard implementations. This breakthrough enabled training with much longer sequences and became the foundation for efficient Transformer implementations.
+> Computes **exact attention with an IO-aware tiled algorithm**, reducing transfers between GPU memory and on-chip SRAM. FlashAttention’s speed and memory benefits depend on hardware and sequence length; it preserves dense attention rather than changing its quadratic arithmetic.
+
+---
 
 ### 📄 [FlashAttention-2: Faster Attention with Better Parallelism and Work Partitioning](https://arxiv.org/abs/2307.08691)
 
-**Authors:** Dao (Princeton)  
+**Authors:** Tri Dao<br>
 **Contribution:** `🚀 Optimized Parallelism`
 
-> Built upon FlashAttention with **improved work partitioning** and parallelism strategies, achieving up to 2x additional speedup. FlashAttention-2 better utilizes GPU resources by reducing non-matmul FLOPs and optimizing thread block scheduling. It has become the de facto standard for attention computation in modern LLM frameworks.
+> Improves exact attention through **work partitioning and GPU parallelism**. FlashAttention-2 reports substantial gains over the original algorithm on evaluated hardware/workloads; kernel efficiency remains sensitive to hardware and tensor shape.
 
 ---
 
@@ -72,17 +81,19 @@ _From quantization breakthroughs to attention optimization, these papers enable 
 
 ### 📄 [Fast Inference from Transformers via Speculative Decoding](https://arxiv.org/abs/2211.17192)
 
-**Authors:** Leviathan et al. (Google)  
+**Authors:** Yaniv Leviathan et al.<br>
 **Contribution:** `🎯 Parallel Decoding`
 
-> Introduced **speculative decoding**, a technique that uses a smaller "draft" model to generate candidate tokens that are then verified in parallel by the larger target model. This approach can achieve 2-3x speedup in inference without any change to model outputs, exploiting the fact that verification is much cheaper than generation in autoregressive models.
+> Uses a **draft model and parallel target-model verification** with a distribution-preserving correction procedure. Speculative decoding reduces latency when drafts are accepted efficiently; gains depend on acceptance, implementation and hardware.
 
-### 📄 🆕 [Efficient Memory Management for Large Language Model Serving with PagedAttention](https://arxiv.org/abs/2309.06180)
+---
 
-**Authors:** Kwon et al. (UC Berkeley)  
+### 📄 [Efficient Memory Management for Large Language Model Serving with PagedAttention](https://arxiv.org/abs/2309.06180)
+
+**Authors:** Woosuk Kwon et al.<br>
 **Contribution:** `💾 Memory Management`
 
-> Introduced **PagedAttention**, a novel attention algorithm inspired by virtual memory paging in operating systems. By storing attention keys and values in non-contiguous memory blocks, vLLM achieves near-zero memory waste and enables flexible memory sharing across requests. This innovation increased serving throughput by 2-4x compared to existing systems, making it the backbone of modern LLM serving infrastructure.
+> Introduces **PagedAttention** for non-contiguous KV-cache storage and sharing in vLLM. The reported 2–4× serving throughput is against FasterTransformer/Orca at comparable latency in tested workloads; deployment gains depend on request mix and hardware.
 
 ---
 
@@ -90,31 +101,66 @@ _From quantization breakthroughs to attention optimization, these papers enable 
 
 ### 📄 [SparseGPT: Massive Language Models Can Be Accurately Pruned in One-Shot](https://arxiv.org/abs/2301.00774)
 
-**Authors:** Frantar & Alistarh (IST Austria)  
+**Authors:** Elias Frantar et al.<br>
 **Contribution:** `✂️ One-Shot Pruning`
 
-> Demonstrated that **massive language models can be pruned to 50-60% sparsity** in a single pass without any retraining. SparseGPT uses an efficient approximate sparse regression solver to remove weights while minimizing output error. This enables significant speedups on sparse-aware hardware while maintaining model quality, opening new paths for efficient deployment.
+> Uses approximate sparse regression for **one-shot pruning** of large language models, with substantial unstructured sparsity in tested OPT/BLOOM models. SparseGPT studies compression quality without retraining; faster execution additionally needs supported sparse kernels.
 
-### 📄 [Wanda: A Simple and Effective Pruning Approach for Large Language Models](https://arxiv.org/abs/2306.11695)
+---
 
-**Authors:** Sun et al. (CMU, Meta)  
+### 📄 [A Simple and Effective Pruning Approach for Large Language Models](https://arxiv.org/abs/2306.11695)
+
+**Authors:** Mingjie Sun et al.<br>
 **Contribution:** `🎯 Simple Pruning`
 
-> Proposed **Pruning by Weights and Activations (Wanda)**, an extremely simple yet effective pruning method that requires no retraining or weight updates. By considering both weight magnitudes and input activations, Wanda matches or exceeds SparseGPT performance while being orders of magnitude faster to compute. This simplicity makes it highly practical for real-world deployment.
+> Prunes using **weight magnitude multiplied by input activation norm**, avoiding weight updates during pruning. Wanda is a simple baseline to compare with SparseGPT; calibration, sparsity pattern and supported hardware determine quality and actual inference savings.
 
-### 📄 🆕 [The Unreasonable Ineffectiveness of the Deeper Layers](https://arxiv.org/abs/2403.17887)
+---
 
-**Authors:** Gromov et al. (Meta, ETH Zurich)  
+### 📄 [The Unreasonable Ineffectiveness of the Deeper Layers](https://arxiv.org/abs/2403.17887)
+
+**Authors:** Andrey Gromov et al.<br>
 **Contribution:** `🔬 Layer Pruning`
 
-> Revealed that **up to half of the layers in popular LLMs can be removed** with minimal impact on performance across various benchmarks. This surprising finding suggests significant redundancy in current model architectures and opens new avenues for model compression. The paper provides practical guidance for layer pruning strategies that maintain model quality.
+> Finds that substantial blocks of deeper layers can be removed from tested LLMs with **healing fine-tuning** while preserving selected task scores. Sensitivity differs across benchmarks, especially reasoning, so pruning is not a universally lossless operation.
 
-### 📄 🆕 [HAPE: Hardware-Aware LLM Pruning For Efficient On-Device Inference](https://dl.acm.org/doi/epdf/10.1145/3744244)
+---
 
-**Authors:** Wenqian Zhao  
+### 📄 [HAPE: Hardware-Aware LLM Pruning For Efficient On-Device Inference Optimization](https://dl.acm.org/doi/epdf/10.1145/3744244)
+
+**Authors:** Wenqian Zhao, Lancheng Zou, Zixiao Wang, Xufeng Yao and Bei Yu (CUHK)<br>
 **Contribution:** `⚙️ Hardware-Specific Pruning`
 
-> Moves beyond generic pruning by **incorporating hardware-specific constraints directly into the pruning process**. HAPE considers memory bandwidth, compute capabilities, and power constraints of target devices (phones, laptops, edge devices) when determining which weights to prune. This hardware-aware approach enables massive models to run efficiently on consumer devices with minimal latency and energy consumption.
+> Studies **hardware-aware structured pruning** with an optimization model for latency, sparsity and quality. The reported Llama-2-7B experiments use a Xeon 4210R CPU and H800 GPU; they do not establish phone, laptop or energy-efficiency results.
+
+---
+
+## ⚙️ Training Efficiency
+
+### 📄 [Conditional Memory via Scalable Lookup: A New Axis of Sparsity for Large Language Models](https://arxiv.org/abs/2601.07372)
+
+**Authors:** Cheng et al.<br>
+**Contribution:** `🗂️ Conditional Memory`
+
+> See the main entry in [Architectures](architectures.md) for the method, evidence and limitations.
+
+---
+
+### 📄 [Megatron-LM: Training Multi-Billion Parameter Language Models Using Model Parallelism](https://arxiv.org/abs/1909.08053) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** Mohammad Shoeybi et al.<br>
+**Contribution:** `⚙️ Tensor Parallelism`
+
+> Introduces efficient **intra-layer tensor model parallelism** for multi-billion-parameter Transformer training. The original Megatron-LM report explains how to split attention and feed-forward computation across GPUs; pipeline parallelism belongs to later work.
+
+---
+
+### 📄 [ZeRO: Memory Optimizations Toward Training Trillion Parameter Models](https://arxiv.org/abs/1910.02054) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** Samyam Rajbhandari, Jeff Rasley, Olatunji Ruwase and Yuxiong He (Microsoft)<br>
+**Contribution:** `💾 State Partitioning`
+
+> Partitions **optimizer states, gradients and parameters** across data-parallel workers to reduce redundant memory. ZeRO explains how memory savings interact with communication and parallelism; its trillion-parameter capacity analysis is distinct from demonstrating a trained trillion-parameter model.
 
 ---
 

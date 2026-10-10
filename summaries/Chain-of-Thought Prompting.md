@@ -1,171 +1,76 @@
 # Chain-of-Thought Prompting - Detailed Summary
 
-📄 **Paper:** [Chain-of-Thought Prompting Elicits Reasoning in Large Language Models](https://arxiv.org/abs/2201.11903)  
-👥 **Authors:** Jason Wei, Xuezhi Wang, Dale Schuurmans, Maarten Bosma, Brian Ichter, Fei Xia, Ed Chi, Quoc Le, Denny Zhou  
-🏛️ **Institution:** Google Research, Brain Team  
-📅 **Published:** January 2022 (NeurIPS 2022)
+📄 **Paper:** [Chain-of-Thought Prompting Elicits Reasoning in Large Language Models](https://arxiv.org/abs/2201.11903)<br>
+👥 **Authors:** Jason Wei, Xuezhi Wang, Dale Schuurmans, Maarten Bosma, Brian Ichter, Fei Xia, Ed H. Chi, Quoc V. Le, Denny Zhou · Google Research<br>
+📅 **First public version:** January 2022 · NeurIPS 2022
 
 ---
 
 ## 🎯 One-Line Summary
 
-Simply asking large language models to "think step by step" dramatically improves performance on complex reasoning tasks, unlocking emergent capabilities without any model changes.
-
-## 🔍 Problem Statement
-
-Standard prompting with LLMs struggled with:
-
-- **Complex reasoning:** Multi-step math, logic, common sense
-- **Opaque failures:** Models gave wrong answers without explanation
-- **Limited capabilities:** Even large models failed on simple arithmetic
-- **No intermediate steps:** Direct input → output, no reasoning visible
+Adding worked reasoning steps to few-shot demonstrations improves several reasoning benchmarks without updating model weights.
 
 ## 💡 Key Innovation: Chain-of-Thought (CoT)
 
-### The Breakthrough:
+The original method shows examples containing **question → intermediate steps → answer**, then asks the model to continue a new question in that style.
 
-Instead of:
+| Standard demonstration | Chain-of-thought demonstration |
+| :-- | :-- |
+| Sam has 3 apples and gives away 1. **Answer: 2.** | Sam starts with 3 and gives away 1. **3 − 1 = 2. Answer: 2.** |
 
-```
-Q: Roger has 5 tennis balls. He buys 2 more cans of 3 balls each. How many balls does he have now?
-A: 11
-```
-
-Use Chain-of-Thought:
-
-```
-Q: Roger has 5 tennis balls. He buys 2 more cans of 3 balls each. How many balls does he have now?
-A: Roger started with 5 balls. 2 cans of 3 balls each is 6 balls. 5 + 6 = 11.
-```
-
-### Two Variants:
-
-### 1. **Few-Shot CoT**
-
-Provide 3-8 examples with step-by-step reasoning:
-
-- Show the thinking process explicitly
-- Model learns to mimic the reasoning pattern
-- Works across different task types
-
-### 2. **Zero-Shot CoT** (The Magic Phrase)
-
-Just add: **"Let's think step by step."**
-
-```
-Q: If a store has 23 apples and sells 17, then gets 8 more, how many apples?
-A: Let's think step by step.
-```
-
-Model automatically generates intermediate reasoning steps!
+This is **few-shot CoT**. The separate [Kojima et al. zero-shot paper](https://arxiv.org/abs/2205.11916) studies a reasoning instruction followed by answer extraction without worked exemplars.
 
 ## 📊 Results & Impact
 
-### Benchmark Performance:
+**PaLM 540B accuracy (%), standard versus CoT**, [version 6, Appendix Table 2](https://arxiv.org/pdf/2201.11903v6), page 21:
 
-| Task               | Standard Prompting | CoT Prompting | Improvement |
-| ------------------ | ------------------ | ------------- | ----------- |
-| **GSM8K (Math)**   | 17.9%              | **58.1%**     | +224%       |
-| **SVAMP (Math)**   | 69.9%              | **79.0%**     | +13%        |
-| **AQuA (Algebra)** | 33.1%              | **43.7%**     | +32%        |
-| **CommonsenseQA**  | 67.3%              | **74.5%**     | +11%        |
-| **StrategyQA**     | 60.9%              | **69.1%**     | +13%        |
+| Benchmark | Standard | CoT |
+| :-- | --: | --: |
+| GSM8K | 17.9 | 56.9 |
+| SVAMP | 69.4 | 79.0 |
+| AQuA | 25.2 | 35.8 |
 
-### Why This Changed Everything:
-
-1. **Zero-cost improvement:** No model retraining needed
-2. **Emergent ability:** Only works with 100B+ parameter models
-3. **Interpretable:** Can see model's reasoning process
-4. **Universal technique:** Works across many task types
-5. **Foundation for reasoning:** Led to entire research area
-
-## 🔮 What Came After
-
-This paper spawned:
-
-- **Self-Consistency CoT** (2023): Sample multiple reasoning paths
-- **Tree of Thoughts** (2023): Explore branching reasoning
-- **Graph of Thoughts** (2023): Non-linear reasoning structures
-- **ReAct** (2023): Reasoning + Acting for agents
-- **OpenAI o1** (2024): Native CoT reasoning models
-- **DeepSeek-R1** (2025): Open-source reasoning models
+These rows exclude the external calculator. Results are specific to the model, task and prompt, not universal gains or a hard parameter threshold.
 
 ## 💻 Implementation
 
-```python
-# Few-shot Chain-of-Thought prompting
-few_shot_prompt = """
-Q: Sam has 3 apples. He gives 1 to his friend. How many does he have?
-A: Sam started with 3 apples. He gave away 1. 3 - 1 = 2. He has 2 apples.
+Prompt-format illustration, not a model implementation:
 
-Q: A train travels 60 mph for 2 hours. How far does it go?
-A: Distance = speed × time. 60 mph × 2 hours = 120 miles.
+```text
+Q: A train travels 60 miles per hour for 2 hours. How far does it go?
+A: Distance = speed × time. 60 × 2 = 120 miles. The answer is 120 miles.
 
-Q: {your_question}
+Q: {new_question}
 A:
-"""
-
-# Zero-shot Chain-of-Thought (the magic phrase!)
-zero_shot_prompt = f"""
-Q: {your_question}
-A: Let's think step by step.
-"""
-
-# The model will automatically generate reasoning steps!
 ```
 
-## 🎯 When CoT Works Best
+Compare representative exemplars with a direct-answer baseline.
 
-**✅ Great for:**
+## ⚠️ Limitations & Challenges
 
-- Multi-step arithmetic and math
-- Logical reasoning problems
-- Commonsense reasoning chains
-- Complex question answering
-- Planning and strategy
+- Extra reasoning tokens cost inference time; avoiding fine-tuning does not make inference free.
+- Gains vary with model, task and demonstrations; plausible steps can be wrong.
+- Visible explanations do not certify correctness or faithfully expose internal computation. See [the faithfulness study](https://arxiv.org/abs/2305.04388).
 
-**❌ Less useful for:**
+## 🔮 Variants & Extensions
 
-- Simple factual lookup ("What's the capital of France?")
-- Single-step tasks
-- Creative writing
-- Small models (<10B parameters)
-
-## 💡 CoT Variants & Extensions
-
-### **Self-Consistency CoT:**
-
-Generate multiple reasoning paths and take majority vote
-
-### **Least-to-Most Prompting:**
-
-Break complex problems into simpler sub-problems
-
-### **Auto-CoT:**
-
-Automatically generate CoT examples using clustering
-
-### **Program-aided CoT:**
-
-Generate Python code for computational steps
+| Next reading | What changes |
+| :-- | :-- |
+| [Zero-shot CoT](https://arxiv.org/abs/2205.11916), 2022 | Elicit reasoning without worked demonstrations. |
+| [Self-consistency](https://arxiv.org/abs/2203.11171), 2022 preprint | Sample paths and aggregate final answers. |
+| [Tree of Thoughts](https://arxiv.org/abs/2305.10601), 2023 | Explore and backtrack over candidate steps. |
+| [ReAct](https://arxiv.org/abs/2210.03629), 2022 preprint | Interleave reasoning, actions and observations. |
 
 ## 🎓 Key Takeaways
 
-- **"Let's think step by step"** is surprisingly powerful
-- Emergent ability: Only appears at scale (100B+ params)
-- Reasoning can be elicited through prompting alone
-- Transparency: Seeing reasoning helps debug failures
-- Free lunch: No training, just better prompts
-- Foundation for modern reasoning systems (o1, DeepSeek-R1)
+The demonstrations' intermediate steps are the original intervention. Generating, selecting and verifying solutions answer different questions.
 
 ## 📚 Essential Resources
 
-- [Original Paper](https://arxiv.org/abs/2201.11903)
-- [Google AI Blog](https://ai.googleblog.com/2022/05/language-models-perform-reasoning-via.html) - Official announcement
-- [The Illustrated Chain-of-Thought](https://jalammar.github.io/tag/chain-of-thought/) - Visual explanation
-- [Prompting Guide](https://www.promptingguide.ai/techniques/cot) - Practical tutorial
-- [Learn Prompting Course](https://learnprompting.org/docs/intermediate/chain_of_thought) - Interactive lessons
-- [Self-Consistency Paper](https://arxiv.org/abs/2203.11171) - Follow-up work
-- [Tree of Thoughts](https://arxiv.org/abs/2305.10601) - Extension to branching reasoning
+- [Original paper and revisions](https://arxiv.org/abs/2201.11903)
+- [Full prompts and tables — version 6](https://arxiv.org/pdf/2201.11903v6)
+- [Reasoning collection](../categories/reasoning.md)
 
-## 📝 This summary is part of [Awesome LLM Papers](https://github.com/puneet-chandna/awesome-LLM-papers) - Star us for Weekly research updates!
+---
+
+Part of [Awesome LLM Papers](../README.md). Summary reviewed 10 October 2026 against the linked source version.

@@ -3,366 +3,451 @@
 <div align="center">
 
 [![Awesome](https://awesome.re/badge-flat2.svg)](https://awesome.re)
-[![Papers](https://img.shields.io/badge/Papers-40+-blue.svg)](https://github.com)
-[![Years](https://img.shields.io/badge/Years-2017--2025-green.svg)](https://github.com)
-[![License: CC0](https://img.shields.io/badge/License-CC0-yellow.svg)](https://opensource.org/licenses/CC0-1.0)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+[![Works](https://img.shields.io/badge/Works-46-blue.svg)](all-papers.md)
+[![Years](https://img.shields.io/badge/Years-2000--2025-green.svg)](all-papers.md)
 
-### A curated collection of pivotal papers that shaped the landscape of Large Language Models
-
-_Each entry represents a significant milestone, from foundational architectures to the latest breakthroughs in reasoning, safety, and scale._
+**Established works with lasting influence. Promising new breakthroughs remain in the main categories until their influence is clearer.**
 
 </div>
 
----
+[2025](#%EF%B8%8F-2025) • [2024](#%EF%B8%8F-2024) • [2023](#%EF%B8%8F-2023) • [2022](#%EF%B8%8F-2022) • [2021](#%EF%B8%8F-2021) • [2020](#%EF%B8%8F-2020) • [2019](#%EF%B8%8F-2019) • [2018](#%EF%B8%8F-2018) • [2017](#%EF%B8%8F-2017) • [2000](#%EF%B8%8F-2000)
 
-## 📑 Table of Contents
-
-- [🏗️ 2017: The Foundation](#-2017-the-foundation)
-- [🌱 2018: The Pre-training Era](#-2018-the-pre-training-era)
-- [🚀 2019: Scaling Begins](#-2019-scaling-begins)
-- [📈 2020: The Science of Scale](#-2020-the-science-of-scale)
-- [🧮 2021: Emergence & Efficiency](#-2021-emergence--efficiency)
-- [💡 2022: Reasoning & Alignment](#-2022-reasoning--alignment)
-- [🌍 2023: Democratization](#-2023-democratization)
-- [🥇 2024: Open Excellence](#-2024-open-excellence)
-- [🔮 2025: Self-Improvement](#-2025-self-improvement)
+Dates follow the earliest public paper/resource record verified in this audit; venue and revision years can differ. NNLM includes its NIPS 2000 and expanded JMLR 2003 versions as one work. ELMo’s 2017 date follows the authors’ stated OpenReview appearance.
 
 ---
 
-## 🏗️ 2017: The Foundation
+## 🏛️ 2025
 
-### 📄 [Attention Is All You Need](https://arxiv.org/pdf/1706.03762)
+### 📄 [DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning](https://arxiv.org/abs/2501.12948) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
 
-**Authors:** Vaswani et al. (Google)  
-**Contribution:** `🏗️ Architecture`
-
-> Created the **Transformer architecture**, the bedrock of all modern LLMs. It fundamentally broke from the sequential processing of recurrent networks (RNNs) by introducing self-attention. This allowed the model to weigh the importance of all words in the input simultaneously, capturing complex, long-range dependencies. More importantly, this design enabled massive parallelization during training, unlocking the ability to build and train the gigantic models we see today.
-
-### 📄 [Deep Reinforcement Learning from Human Preferences](https://arxiv.org/pdf/1706.03741)
-
-**Authors:** Christiano et al. (OpenAI, DeepMind)  
-**Contribution:** `🎯 Alignment`
-
-> Introduced the core ideas behind **Reinforcement Learning from Human Feedback (RLHF)**. This paper demonstrated that models could learn complex behaviors not from explicit goals, but by being trained on human preferences between two different outputs. This concept of learning from comparative feedback laid the essential groundwork for aligning powerful models like ChatGPT to be more helpful, harmless, and aligned with human values.
-
----
-
-## 🌱 2018: The Pre-training Era
-
-### 📄 [Improving Language Understanding by Generative Pre-Training (GPT-1)](https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf)
-
-**Authors:** Radford et al. (OpenAI)  
-**Contribution:** `🌱 Pre-training`
-
-> Introduced the highly effective strategy of **generative pre-training** for language models. It established a powerful two-stage process: first, an unsupervised pre-training phase on a vast and diverse text corpus to learn general world knowledge and language structure, followed by a supervised fine-tuning phase for specific tasks. This set the paradigm for the GPT series and many subsequent models.
-
-### 📄 [BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding](https://arxiv.org/pdf/1810.04805)
-
-**Authors:** Devlin et al. (Google)  
-**Contribution:** `🧠 Understanding`
-
-> Revolutionized natural language understanding by introducing the **bidirectional Transformer (BERT)**. Unlike previous models that processed text in a left-to-right or shallowly combined manner, BERT's Masked Language Model (MLM) objective allowed it to learn deep context from both directions simultaneously. This led to a profound leap in performance on understanding-based tasks like question answering and sentiment analysis.
-
----
-
-## 🚀 2019: Scaling Begins
-
-### 📄 [Language Models are Unsupervised Multitask Learners (GPT-2)](https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf)
-
-**Authors:** Radford et al. (OpenAI)  
-**Contribution:** `🎯 Versatility`
-
-> Demonstrated that a sufficiently large language model could perform a wide range of tasks—like translation, summarization, and question answering—in a **zero-shot setting**. This meant it could tackle these tasks without any explicit, task-specific training, purely through clever prompting. This discovery hinted that a single, generalist model could be a viable path forward for AI.
-
-### 📄 [Megatron-LM: Training Multi-Billion Parameter Language Models Using Model Parallelism](https://arxiv.org/pdf/1909.08053)
-
-**Authors:** Shoeybi et al. (NVIDIA)  
-**Contribution:** `🛠️ Engineering`
-
-> Pioneered and popularized techniques for training **multi-billion parameter models** that were too large to fit on a single GPU. By introducing efficient tensor and pipeline parallelism strategies, this work provided the crucial engineering blueprint that made training truly massive models not just possible, but practical across large GPU clusters.
-
-### 📄 [ZeRO: Memory Optimizations Toward Training Trillion Parameter Models](https://arxiv.org/pdf/1910.02054)
-
-**Authors:** Rasley et al. (Microsoft)  
-**Contribution:** `💾 Memory Optimization`
-
-> Introduced a family of powerful **memory optimization strategies (ZeRO)** that significantly reduced the memory footprint required for large-scale training. By cleverly partitioning the model states (optimizer states, gradients, and parameters) across data-parallel processes, it made it feasible to train models with trillions of parameters on existing hardware, democratizing access to large-scale training.
-
-### 📄 [Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer (T5)](https://arxiv.org/pdf/1910.10683)
-
-**Authors:** Raffel et al. (Google)  
-**Contribution:** `🔄 Framework`
-
-> Proposed a **unified and elegant text-to-text framework**, reframing every NLP task as a text generation problem (e.g., for sentiment analysis, the model would generate the string "positive" or "negative"). This simplification, combined with a comprehensive study on pre-training objectives and datasets, pushed the limits of transfer learning and influenced the design of many subsequent models.
-
----
-
-## 📈 2020: The Science of Scale
-
-### 📄 [Scaling Laws for Neural Language Models](https://arxiv.org/pdf/2001.08361)
-
-**Authors:** Kaplan et al. (OpenAI)  
-**Contribution:** `📈 Scaling`
-
-> Empirically established that model performance scales predictably and follows a **power law** with increases in model size, dataset size, and compute. These "scaling laws" provided a crucial, quantitative roadmap for the industry, justifying the massive investment in larger models by showing that better performance was not just a matter of chance, but an expected outcome of scaling up.
-
-### 📄 [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks](https://arxiv.org/pdf/2005.11401)
-
-**Authors:** Lewis et al. (Facebook AI, UCL, NYU)  
-**Contribution:** `📚 RAG`
-
-> Introduced the foundational **Retrieval-Augmented Generation (RAG)** paradigm that combines parametric memory (the LLM) with non-parametric memory (a retrieval system). This architecture allows models to access and ground their responses in external knowledge, dramatically improving factual accuracy and enabling knowledge updates without retraining. RAG became ubiquitous in production LLM systems and spawned an entire field of retrieval-enhanced AI.
-
-### 📄 [Language Models are Few-Shot Learners (GPT-3)](https://arxiv.org/pdf/2005.14165)
-
-**Authors:** Brown et al. (OpenAI)  
-**Contribution:** `🚀 Emergence`
-
-> Proved that pure scale could unlock surprising, **"emergent" abilities** not present in smaller models. GPT-3's remarkable ability to perform tasks from just a few examples provided in the prompt (in-context learning)—without any fine-tuning or gradient updates—revolutionized how we interact with and build upon LLMs, shifting the focus from model training to prompt engineering.
-
----
-
-## 🧮 2021: Emergence & Efficiency
-
-### 📄 [Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity](https://arxiv.org/pdf/2101.03961)
-
-**Authors:** Fedus et al. (Google)  
-**Contribution:** `🧩 Efficiency`
-
-> Successfully introduced the **Mixture-of-Experts (MoE)** architecture to Transformers at an unprecedented scale. This allowed models to grow to over a trillion parameters while keeping the computational cost manageable. For any given input, the model would only activate a small subset of its weights (the "experts"), dramatically improving training and inference efficiency and paving the way for models like Mixtral.
-
-### 📄 [Learning Transferable Visual Models From Natural Language Supervision (CLIP)](https://arxiv.org/pdf/2103.00020)
-
-**Authors:** Radford et al. (OpenAI)  
-**Contribution:** `🌉 Vision-Language`
-
-> Created a **joint embedding space for images and text** by training on 400 million image-text pairs from the internet. CLIP's contrastive learning approach enabled zero-shot visual classification—describing categories in natural language and having the model recognize them without task-specific training. This breakthrough bridged vision and language, becoming the foundation for DALL-E, Stable Diffusion, and the entire multimodal AI revolution.
-
-### 📄 [LoRA: Low-Rank Adaptation of Large Language Models](https://arxiv.org/pdf/2106.09685)
-
-**Authors:** Hu et al. (Microsoft)  
-**Contribution:** `🔧 Efficient Fine-tuning`
-
-> Introduced **Low-Rank Adaptation (LoRA)**, a revolutionary technique that freezes pre-trained model weights and injects trainable low-rank decomposition matrices into Transformer layers. This reduces trainable parameters by 10,000x while maintaining or improving model quality, making fine-tuning accessible on consumer hardware. LoRA became the de facto standard for LLM customization and spawned an entire ecosystem of efficient adaptation methods.
-
-### 📄 [Evaluating Large Language Models Trained on Code (Codex)](https://arxiv.org/pdf/2107.03374)
-
-**Authors:** Chen et al. (OpenAI)  
-**Contribution:** `💻 Code Generation`
-
-> Demonstrated the phenomenal power of LLMs when trained on vast amounts of public code from sources like GitHub. This research, which directly led to the creation of **GitHub Copilot**, proved that complex, logical reasoning abilities could be learned from the structure and patterns inherent in code, extending the capabilities of LLMs far beyond natural language.
-
-### 📄 [On the Opportunities and Risks of Foundation Models](https://arxiv.org/pdf/2108.07258)
-
-**Authors:** Bommasani et al. (Stanford)  
-**Contribution:** `📖 Concept`
-
-> Coined the term **"Foundation Models"** to describe large models trained on broad data that can be adapted to a wide range of downstream tasks. The paper provided a thorough analysis of the paradigm shift they represent, creating a shared vocabulary and framework for discussing their capabilities, homogenization effects, and profound societal impact.
-
-### 📄 [Finetuned Language Models are Zero-Shot Learners (FLAN)](https://arxiv.org/pdf/2109.01652)
-
-**Authors:** Wei et al. (Google)  
-**Contribution:** `🎯 Instruction Tuning`
-
-> Showed that fine-tuning language models on a massive collection of diverse NLP tasks expressed as natural language instructions dramatically improves their zero-shot performance on unseen tasks. This **"instruction tuning"** made models more usable and better at generalizing to what users intended, a key step towards helpful assistants.
-
-### 📄 [Scaling Language Models: Methods, Analysis & Insights from Training Gopher](https://arxiv.org/pdf/2112.11446)
-
-**Authors:** Rae et al. (DeepMind)  
-**Contribution:** `📊 Scaling Insights`
-
-> Detailed the training of the **280B parameter Gopher model**, providing one of the most comprehensive analyses of the effects of scale on model performance. The paper explored performance across 152 different tasks, identifying not only the benefits of scale but also its limitations, particularly in areas requiring deep reasoning or factual recall, guiding future research directions.
-
----
-
-## 💡 2022: Reasoning & Alignment
-
-### 📄 [Chain-of-Thought Prompting Elicits Reasoning in Large Language Models](https://arxiv.org/pdf/2201.11903)
-
-**Authors:** Wei et al. (Google)  
-**Contribution:** `🧮 Reasoning`
-
-> A simple but profound discovery that unlocked new capabilities in LLMs. By simply prompting a model to **"think step-by-step"** and generate intermediate reasoning steps before the final answer, this technique dramatically improved its ability to solve complex multi-step problems in domains like arithmetic, commonsense, and symbolic reasoning, without any change to the model itself.
-
-### 📄 [LaMDA: Language Models for Dialog Applications](https://arxiv.org/pdf/2201.08239)
-
-**Authors:** Thoppilan et al. (Google)  
-**Contribution:** `💬 Dialogue`
-
-> Introduced a family of models specifically designed for **open-ended dialogue**. LaMDA was pre-trained on dialogue data and fine-tuned on metrics like quality, safety, and groundedness, allowing it to produce more sensible, specific, and interesting conversational responses compared to general-purpose models of its time.
-
-### 📄 [Training language models to follow instructions with human feedback (InstructGPT)](https://arxiv.org/pdf/2203.02155)
-
-**Authors:** Ouyang et al. (OpenAI)  
-**Contribution:** `🧑‍🏫 Instruction Following`
-
-> Detailed the **three-step RLHF methodology** that was the engine behind ChatGPT. It refined the process of aligning powerful LLMs to follow human instructions by using human-written demonstrations and preference-labeled comparisons. This made models significantly more helpful, truthful, and harmless, setting the standard for AI assistants.
-
-### 📄 [Training Compute-Optimal Large Language Models (Chinchilla)](https://arxiv.org/pdf/2203.15556)
-
-**Authors:** Hoffmann et al. (DeepMind)  
-**Contribution:** `⚖️ Optimization`
-
-> Challenged the prevailing wisdom of "bigger is always better" for model size. The Chinchilla paper showed that for a given compute budget, the best performance is achieved by **training a smaller model on much more data**. This revised the original scaling laws and caused a major industry shift towards prioritizing high-quality, large-scale datasets over simply increasing parameter counts.
-
-### 📄 [PaLM: Scaling Language Modeling with Pathways](https://arxiv.org/pdf/2204.02311)
-
-**Authors:** Chowdhery et al. (Google)  
-**Contribution:** `🌟 Performance`
-
-> Showcased the power of extreme scale (**540B parameters**) combined with Google's efficient Pathways system. PaLM achieved state-of-the-art performance on hundreds of language tasks and demonstrated breakthrough capabilities in few-shot learning and, notably, chain-of-thought reasoning, solving problems previously thought to be beyond the reach of LLMs.
-
-### 📄 [FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness](https://arxiv.org/pdf/2205.14135)
-
-**Authors:** Dao et al. (Stanford)  
-**Contribution:** `⚡ Attention Optimization`
-
-> Revolutionized attention computation by making it **IO-aware**, reducing memory reads/writes between GPU high-bandwidth memory and on-chip SRAM. FlashAttention computes exact attention 2-4x faster while using 5-20x less memory than standard implementations. This breakthrough enabled training with much longer sequences and became the universal foundation for efficient Transformer implementations—virtually every modern LLM training run uses it.
-
-### 📄 [Emergent Abilities of Large Language Models](https://arxiv.org/pdf/2206.07682)
-
-**Authors:** Wei et al. (Google, DeepMind, Stanford, UNC)  
-**Contribution:** `🪄 Emergence`
-
-> Formalized and provided compelling evidence for the concept of **emergent abilities**—complex abilities that are not present in smaller models but appear, often unpredictably, in larger ones. This paper highlighted that the relationship between scale and capability is non-linear, explaining why simply making models bigger can unlock qualitatively new skills.
-
-### 📄 [BLOOM: A 176B-Parameter Open-Access Multilingual Language Model](https://arxiv.org/pdf/2211.05100)
-
-**Authors:** BigScience Workshop  
-**Contribution:** `🌍 Open Science`
-
-> A massive, collaborative effort involving over 1,000 researchers to build and release a powerful, **open-access multilingual model**. BLOOM stands as a testament to transparent and reproducible research in the era of large-scale AI, providing a powerful artifact for the global research community to study and build upon.
-
-### 📄 [Constitutional AI: Harmlessness from AI Feedback (RLAIF)](https://arxiv.org/pdf/2212.08073)
-
-**Authors:** Bai et al. (Anthropic)  
-**Contribution:** `🛡️ Safety`
-
-> Introduced **Reinforcement Learning from AI Feedback (RLAIF)**. This groundbreaking technique trains models to be helpful and harmless using AI-generated preference labels based on a simple "constitution" (a set of principles). This reduces the reliance on expensive and potentially biased human labeling for safety alignment, offering a more scalable path to safe AI.
-
-
----
-
-## 🌍 2023: Democratization
-
-### 📄 [LLaMA: Open and Efficient Foundation Language Models](https://arxiv.org/pdf/2302.13971)
-
-**Authors:** Touvron et al. (Meta)  
-**Contribution:** `🌐 Open Source`
-
-> Released a family of powerful yet efficient foundation models to the research community. While not fully open-source initially, LLaMA's availability **democratized access to state-of-the-art LLMs**, sparking a massive wave of innovation in open-source fine-tuning, quantization, and local deployment that continues to this day.
-
-### 📄 [GPT-4 Technical Report](https://arxiv.org/pdf/2303.08774)
-
-**Authors:** OpenAI  
-**Contribution:** `🏆 Multimodality`
-
-> Set a new standard for large-scale models, demonstrating exceptional performance across a wide array of benchmarks. As a **large multimodal model**, GPT-4 exhibited human-level performance on various professional and academic exams and showcased deep reasoning and the ability to seamlessly process both text and image inputs, expanding the scope of what AI assistants can do.
-
-### 📄 [Direct Preference Optimization: Your Language Model is Secretly a Reward Model](https://arxiv.org/pdf/2305.18290)
-
-**Authors:** Rafailov et al. (Stanford)  
-**Contribution:** `🎯 Simplified Alignment`
-
-> Introduced **Direct Preference Optimization (DPO)**, a simpler alternative to RLHF that eliminates the need for a separate reward model and reinforcement learning entirely. DPO directly optimizes the language model on preference data using a clever reparameterization of the reward function. This approach is more stable, computationally efficient, and became the go-to method for preference-based fine-tuning, democratizing alignment for the open-source community.
-
-### 📄 [Llama 2: Open Foundation and Fine-Tuned Chat Models](https://arxiv.org/pdf/2307.09288)
-
-**Authors:** Touvron et al. (Meta)  
-**Contribution:** `🔓 Open & Safe`
-
-> A major step forward for open-source AI. Llama 2 not only improved upon the original models but was also released with a **commercial-use license** and was fine-tuned for dialogue. The release included a detailed safety report, making powerful, aligned chat models widely accessible for both research and commercial applications.
-
-### 📄 [Mistral 7B](https://arxiv.org/pdf/2310.06825)
-
-**Authors:** Jiang et al. (Mistral AI)  
-**Contribution:** `⚡ Efficiency`
-
-> Proved that smaller, smartly designed models can outperform much larger ones. Mistral 7B used novel attention mechanisms like **Grouped-Query Attention** and **Sliding Window Attention** to achieve performance superior to Llama 13B on many benchmarks, setting a new bar for what is possible with efficient model architecture and inference.
-
-### 📄 [Mamba: Linear-Time Sequence Modeling with Selective State Spaces](https://arxiv.org/pdf/2312.00752)
-
-**Authors:** Gu & Dao (CMU, Princeton)  
-**Contribution:** `🐍 New Architecture`
-
-> Introduced Mamba, a **selective state space model (SSM)** that achieves Transformer-level performance but with linear-time complexity and much faster inference. By using a state-based approach instead of quadratic self-attention, it represents a major architectural challenger to the Transformer's dominance, especially for handling extremely long sequences.
-
----
-
-## 🥇 2024: Open Excellence
-
-### 📄 [OLMo: Accelerating the Science of Language Models](https://arxiv.org/pdf/2402.00838)
-
-**Authors:** Groeneveld et al. (AI2)  
-**Contribution:** `🔬 Reproducibility`
-
-> Championed a truly open approach to AI research by releasing a state-of-the-art language model while providing not just the model weights, but also the **complete training data, code, and evaluation tools**. OLMo is designed explicitly to empower researchers to dissect, study, and advance the science of language models.
-
-### 📄 [DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models](https://arxiv.org/abs/2402.03300)
-
-**Authors:** DeepSeek AI  
-**Contribution:** `🧮 Mathematical Reasoning`
-
-> Introduced **DeepSeekMath 7B**, the first open model to approach GPT-4 level on the competition-level MATH benchmark (51.7%). More importantly, this paper introduced **Group Relative Policy Optimization (GRPO)**—a more memory-efficient variant of PPO that eliminates the need for a separate value model. GRPO became hugely influential: it was later adopted by DeepSeek-R1 and many other reasoning models, establishing itself as the go-to RL algorithm for mathematical reasoning. With 3,700+ citations in under a year, this paper is foundational for the reasoning revolution in LLMs.
-
-### 📄 [Scaling and Evaluating Sparse Autoencoders](https://arxiv.org/abs/2406.04093)
-
-**Authors:** Leo Gao, Tom Dupré la Tour, Henk Tillman et al. (OpenAI)  
-**Contribution:** `🔬 Interpretability at Scale`
-
-> Proposed **k-sparse autoencoders** for extracting interpretable features from LLMs with clean scaling laws. Trained a 16 million latent autoencoder on GPT-4 activations for 40 billion tokens—the largest interpretability experiment ever. Introduced new metrics for evaluating feature quality and released training code + autoencoders for open-source models. This work provides the methodological foundation for understanding what the largest models learn.
-
-### 📄 [The Llama 3 Herd of Models](https://arxiv.org/pdf/2407.21783)
-
-**Authors:** Meta AI  
-**Contribution:** `🥇 SOTA Open Models`
-
-> Released a new family of **state-of-the-art open models**, including 8B and 70B parameter versions, that set a new standard for performance at their scale. Trained on a massive, high-quality dataset, Llama 3 demonstrated significant improvements in reasoning, code generation, and instruction following, rivaling many closed-source models.
-
----
-
-## 🔮 2025: Self-Improvement
-
-### 📄 [DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning](https://arxiv.org/pdf/2501.12948)
-
-**Authors:** DeepSeek AI  
+**Authors:** DeepSeek-AI et al.<br>
 **Contribution:** `🧠 Advanced Reasoning`
 
-> Introduced a novel **Reinforcement Learning framework** that directly rewards models for generating correct intermediate reasoning steps, not just the final answer. This incentivizes the model to learn more robust and generalizable reasoning paths, significantly boosting performance on complex logic, math, and coding tasks where the process is as important as the result.
-
-### 📄 [Titans: Learning to Memorize at Test Time](https://arxiv.org/pdf/2501.00663)
-
-**Authors:** Ghorbani, Behrouz, Zandieh, Karbasi, Mirrokni, Farajtabar (Google Research)  
-**Contribution:** `🧠 Test-Time Memory`
-
-> Introduced a revolutionary **memory-augmented architecture** that fundamentally reimagines how models handle long-range dependencies. Unlike traditional approaches that struggle with context limits, Titans learns to memorize and retrieve information dynamically at test time through a neural long-term memory module. This breakthrough enables handling context lengths beyond 2M tokens while maintaining precise recall, representing a paradigm shift from mere attention mechanisms to true persistent memory systems that can adapt to each input.
-
-### 📄 [Absolute Zero: Reinforced Self-play Reasoning with Zero Data](https://arxiv.org/pdf/2505.03335)
-
-**Authors:** Salesforce AI Research  
-**Contribution:** `♾️ Self-Improvement`
-
-> A paradigm shift in training that moves beyond human data. This paper introduces a method where a model can **autonomously generate its own reasoning problems**, attempt to solve them, and use the verifiable outcomes to improve itself through reinforcement learning. This self-play loop marks a key step towards self-improving, data-independent AI systems that can continuously enhance their own capabilities.
+> Studies reasoning-oriented reinforcement learning: **R1-Zero uses rule-based final-answer accuracy and format rewards**, rather than labels on each intermediate step. R1 adds cold-start and further training stages; verification, readability and reward design remain important limitations.
 
 ---
 
-<div align="center">
+## 🏛️ 2024
 
-### 🌟 Contributing
+### 📄 [Titans: Learning to Memorize at Test Time](https://arxiv.org/abs/2501.00663) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
 
-Feel free to submit PRs to add more foundational papers or improve existing entries!
+**Authors:** Ali Behrouz, Peilin Zhong, Vahab Mirrokni<br>
+**Contribution:** `🧠 Neural Memory`
 
-### 📜 License
-
-This repository is licensed under CC0 License.
-
-### 🙏 Acknowledgments
-
-This list is a tribute to the researchers and engineers who paved the way for the AI revolution.
+> Combines local attention with **gradient-updated neural memory**, using surprise-sensitive updates, momentum and decay. MAC, MAG and MAL offer different integrations; long-context demonstrations do not establish perfect recall or a universal winning variant. [Detailed summary](../summaries/Titans%20Learning%20to%20Memorize%20at%20Test%20Time.md).
 
 ---
 
-⭐ If you find this repository helpful, please consider giving it a star!
+### 📄 [The Llama 3 Herd of Models](https://arxiv.org/abs/2407.21783) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
 
-</div>
+**Authors:** Aaron Grattafiori et al.<br>
+**Contribution:** `🦙 Model Systems`
+
+> An **official Llama 3 model-family report** covering models through 405B parameters, 128K context, post-training and safety evaluations. Useful for large-scale model development; released weights do not imply publication of all training data, and multimodal integrations include research experiments.
+
+---
+
+### 📄 [Scaling and evaluating sparse autoencoders](https://arxiv.org/abs/2406.04093) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** Leo Gao et al. (OpenAI)<br>
+**Contribution:** `🔬 Interpretability at Scale`
+
+> Scales **k-sparse autoencoders** and develops evaluation tools for interpreting learned activation features. The study includes a 16M-latent GPT-4 autoencoder trained on 40B tokens, building on earlier k-sparse methods; learned features still have incomplete interpretability and context limitations.
+
+---
+
+### 📄 [DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models](https://arxiv.org/abs/2402.03300) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** Zhihong Shao et al.<br>
+**Contribution:** `🧮 Mathematical Reasoning`
+
+> Presents DeepSeekMath and **Group Relative Policy Optimization (GRPO)**, which estimates relative advantages from groups of sampled solutions without a separate critic. Its math results depend on training and inference setup; avoid treating the model as the first open system near GPT-4 on every math benchmark.
+
+---
+
+### 📄 [OLMo: Accelerating the Science of Language Models](https://arxiv.org/abs/2402.00838) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** Dirk Groeneveld et al. (AI2)<br>
+**Contribution:** `🔬 Open Research Stack`
+
+> Releases **OLMo weights, training code, data and evaluation tooling** to support open language-model research. Its central contribution is an inspectable research stack; benchmark comparisons are competitive within the reported models and setups.
+
+---
+
+## 🏛️ 2023
+
+### 📄 [Mamba: Linear-Time Sequence Modeling with Selective State Spaces](https://arxiv.org/abs/2312.00752) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** Albert Gu and Tri Dao<br>
+**Contribution:** `🐍 SSM Architecture`
+
+> Makes **state-space parameters input-dependent** and uses a hardware-aware scan for sequence modeling. Mamba studies selective information propagation with linear sequence scaling; throughput and quality comparisons are tied to the tested models and workloads, with finite-state recall limits.
+
+---
+
+### 📄 [Mistral 7B](https://arxiv.org/abs/2310.06825) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** Albert Q. Jiang et al.<br>
+**Contribution:** `⚡ Model Efficiency`
+
+> Combines **grouped-query attention and sliding-window attention** in the Mistral 7B model. The report compares favorably with Llama 2 13B on its evaluated suite; these architectural ingredients predate Mistral and gains remain benchmark-specific.
+
+---
+
+### 📄 [Llama 2: Open Foundation and Fine-Tuned Chat Models](https://arxiv.org/abs/2307.09288) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** Hugo Touvron et al. (Meta)<br>
+**Contribution:** `🦙 Open-Weight Models`
+
+> An **official Llama 2 report** on pretrained and chat-tuned open-weight models, including preference training and safety evaluations. It broadened research/commercial access under its license; released weights differ from fully disclosed training data.
+
+---
+
+### 📄 [Direct Preference Optimization: Your Language Model is Secretly a Reward Model](https://arxiv.org/abs/2305.18290) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** Rafael Rafailov et al.<br>
+**Contribution:** `⚡ Simplified Alignment`
+
+> Derives an **offline preference objective through the policy’s implicit reward relation**, avoiding a separately fitted reward model and online RL loop. DPO simplifies preference training in studied settings; data quality, reference policy and distribution shift still matter.
+
+---
+
+### 📄 [GPT-4 Technical Report](https://arxiv.org/abs/2303.08774) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** OpenAI et al.<br>
+**Contribution:** `🏆 Multimodal Intelligence`
+
+> Documents **GPT-4**, a model accepting image and text inputs with text outputs, alongside capability and safety evaluations. The report limits disclosure of training and architecture; it should be distinguished from the later GPT-4V product and system card.
+
+---
+
+### 📄 [LLaMA: Open and Efficient Foundation Language Models](https://arxiv.org/abs/2302.13971) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** Hugo Touvron et al.<br>
+**Contribution:** `🦙 Model Access`
+
+> Releases **LLaMA research-access model weights** and studies data-efficient autoregressive training across several sizes. A pivotal access milestone for language-model research; the original research license and partially disclosed data differ from unrestricted open-source reproducibility.
+
+---
+
+## 🏛️ 2022
+
+### 📄 [Constitutional AI: Harmlessness from AI Feedback](https://arxiv.org/abs/2212.08073) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** Yuntao Bai et al. (Anthropic)<br>
+**Contribution:** `🛡️ Scalable Safety`
+
+> Uses constitutional principles for **critique/revision and AI harmlessness preferences**, while retaining human helpfulness feedback. The reported preference trade-off is an alignment experiment, not a proof of harmlessness. [Detailed summary](../summaries/Constitutional%20AI%20Harmlessness%20from%20AI%20Feedback.md).
+
+---
+
+### 📄 [BLOOM: A 176B-Parameter Open-Access Multilingual Language Model](https://arxiv.org/abs/2211.05100) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** BigScience Workshop et al.<br>
+**Contribution:** `🌍 Multilingual Research`
+
+> An **official report on BLOOM**, a 176B multilingual model developed through the BigScience collaboration. It documents collaborative training and access to model artifacts; its Responsible AI License and disclosed resources should be distinguished from unrestricted licensing or full reproducibility.
+
+---
+
+### 📄 [Emergent Abilities of Large Language Models](https://arxiv.org/abs/2206.07682) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** Jason Wei et al.<br>
+**Contribution:** `🪄 Emergence Theory`
+
+> Catalogues **emergent abilities as measured on selected tasks**, where scores appear abruptly with scale. It provides a useful historical framework; metric-dependent interpretations should be read alongside the later Mirage analysis.
+
+---
+
+### 📄 [FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness](https://arxiv.org/abs/2205.14135) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** Tri Dao et al.<br>
+**Contribution:** `💾 IO-Aware Algorithm`
+
+> Computes **exact attention with an IO-aware tiled algorithm**, reducing transfers between GPU memory and on-chip SRAM. FlashAttention’s speed and memory benefits depend on hardware and sequence length; it preserves dense attention rather than changing its quadratic arithmetic.
+
+---
+
+### 📄 [Large Language Models are Zero-Shot Reasoners](https://arxiv.org/abs/2205.11916) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** Kojima et al.<br>
+**Contribution:** `💭 Zero-Shot CoT`
+
+> Uses a **reasoning instruction followed by answer extraction** without worked demonstrations. This separates zero-shot CoT from Wei et al.’s few-shot method; gains vary with model and task, and generated explanations may be wrong.
+
+---
+
+### 📄 [PaLM: Scaling Language Modeling with Pathways](https://arxiv.org/abs/2204.02311) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** Aakanksha Chowdhery et al.<br>
+**Contribution:** `📈 Model Scaling`
+
+> Reports **PaLM**, a 540B dense model trained with Pathways, and evaluates few-shot language and reasoning tasks. Useful for studying scaling and prompting together; the report also examines bias, toxicity and memorization rather than establishing unrestricted capability.
+
+---
+
+### 📄 [Training Compute-Optimal Large Language Models](https://arxiv.org/abs/2203.15556) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** Jordan Hoffmann et al.<br>
+**Contribution:** `⚖️ Compute Allocation`
+
+> Studies **compute-optimal allocation between parameter count and training tokens** under a fixed pretraining budget. Chinchilla shows why many contemporary large models were undertrained; deployment cost and inference frequency can change the preferred allocation.
+
+---
+
+### 📄 [Self-Consistency Improves Chain of Thought Reasoning in Language Models](https://arxiv.org/abs/2203.11171) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** Wang et al.<br>
+**Contribution:** `🗳️ Answer Aggregation`
+
+> Samples **diverse reasoning paths and aggregates final answers** rather than using a single greedy chain. A foundational test-time-compute baseline; voting adds generation cost and is not a correctness certificate.
+
+---
+
+### 📄 [Training language models to follow instructions with human feedback](https://arxiv.org/abs/2203.02155) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** Long Ouyang et al.<br>
+**Contribution:** `🧑‍🏫 Instruction Following`
+
+> Trains **InstructGPT** through human demonstrations, preference reward modeling and PPO, with a pretraining-mix variant. Labelers preferred a 1.3B aligned model to 175B GPT-3 on the tested prompt distribution; this is not universal capability superiority. [Detailed summary](../summaries/RLHF%20Training%20with%20Human%20Feedback.md).
+
+---
+
+### 📄 [Chain-of-Thought Prompting Elicits Reasoning in Large Language Models](https://arxiv.org/abs/2201.11903) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** Jason Wei et al. (Google)<br>
+**Contribution:** `🧮 Reasoning`
+
+> Shows that **worked reasoning demonstrations** can improve arithmetic, commonsense and symbolic tasks without weight updates. Distinguish this few-shot method from Kojima et al.’s zero-shot reasoning instruction; extra tokens cost inference compute and explanations need not be faithful. [Detailed summary](../summaries/Chain-of-Thought%20Prompting.md).
+
+---
+
+### 📄 [LaMDA: Language Models for Dialog Applications](https://arxiv.org/abs/2201.08239) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** Romal Thoppilan et al.<br>
+**Contribution:** `💬 Dialogue`
+
+> An **official LaMDA dialogue-model report**, combining web/dialogue pretraining, fine-tuning and tools for factual grounding. It makes quality, safety and groundedness separate evaluation targets; human-rated metrics are evidence rather than safety guarantees.
+
+---
+
+## 🏛️ 2021
+
+### 📄 [Scaling Language Models: Methods, Analysis & Insights from Training Gopher](https://arxiv.org/abs/2112.11446) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** Jack W. Rae et al.<br>
+**Contribution:** `📊 Scaling Analysis`
+
+> An **official Gopher report** studying a 280B model across a broad task suite. Scale helps reading comprehension and fact-checking more than selected logic/math tasks; data, bias and task-dependent failures remain central to its analysis.
+
+---
+
+### 📄 [Training Verifiers to Solve Math Word Problems](https://arxiv.org/abs/2110.14168) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** Cobbe et al.<br>
+**Contribution:** `✅ GSM8K & Verifiers`
+
+> Introduces **GSM8K and learned verification** to select among sampled math solutions. It separates proposing an answer from ranking candidates; gains require sampling compute, and larger search can exploit verifier errors.
+
+---
+
+### 📄 [Finetuned Language Models Are Zero-Shot Learners](https://arxiv.org/abs/2109.01652) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** Jason Wei et al. (Google)<br>
+**Contribution:** `🎯 Task Generalization`
+
+> Fine-tunes a language model on **tasks expressed through natural-language instructions** and evaluates held-out task families. FLAN makes instruction tuning a generalization strategy; task mixture, holdout design and base-model capability determine the observed transfer.
+
+---
+
+### 📄 [On the Opportunities and Risks of Foundation Models](https://arxiv.org/abs/2108.07258) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** Rishi Bommasani et al.<br>
+**Contribution:** `📖 Research Perspective`
+
+> A **research report and perspective** defining foundation models and examining adaptation, homogenization and societal risks. It supplies a shared framework for inherited downstream capabilities and failures rather than a new training experiment.
+
+---
+
+### 📄 [Evaluating Large Language Models Trained on Code](https://arxiv.org/abs/2107.03374) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** Mark Chen et al. (OpenAI)<br>
+**Contribution:** `💻 Functional Code Evaluation`
+
+> Studies **Codex code generation** and introduces HumanEval with execution-based functional correctness and sampling metrics. It makes candidate sampling and test-based evaluation central; passing limited tests differs from proving program correctness or broad reasoning ability.
+
+---
+
+### 📄 [LoRA: Low-Rank Adaptation of Large Language Models](https://arxiv.org/abs/2106.09685) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** Edward J. Hu et al.<br>
+**Contribution:** `💡 Efficient Adaptation`
+
+> Freezes pretrained weights and trains **low-rank updates** to selected weight matrices. LoRA reduces trainable parameters and optimizer memory; the reduction depends on rank, model and target layers, while the base model still needs to fit in memory.
+
+---
+
+### 📄 [Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity](https://arxiv.org/abs/2101.03961) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** William Fedus, Barret Zoph and Noam Shazeer (Google)<br>
+**Contribution:** `🧩 Sparse MoE`
+
+> Simplifies sparse MoE routing to **one selected expert per token**, with training and load-balancing methods for large models. Switch separates total capacity from active compute while building on earlier MoE/Transformer research; expert storage and communication remain costs.
+
+---
+
+### 📄 [Learning Transferable Visual Models From Natural Language Supervision](https://arxiv.org/abs/2103.00020) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** Alec Radford et al. (OpenAI)<br>
+**Contribution:** `🔗 Vision-Language Foundation`
+
+> Learns **joint image/text embeddings through contrastive supervision** and evaluates zero-shot transfer using text descriptions of categories. CLIP connects language supervision to visual recognition; performance varies with distribution and remains limited on counting and abstract tasks.
+
+---
+
+## 🏛️ 2020
+
+### 📄 [Language Models are Few-Shot Learners](https://arxiv.org/abs/2005.14165) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** Tom B. Brown et al.<br>
+**Contribution:** `🚀 In-Context Learning`
+
+> Evaluated **GPT-3** across zero-, one- and few-shot tasks without task-specific weight updates. It made in-context task adaptation a central research direction, while retaining substantial reasoning, bias and contamination limitations. [Detailed summary](../summaries/GPT-3%20Language%20Models%20are%20Few-Shot%20Learners.md).
+
+---
+
+### 📄 [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks](https://arxiv.org/abs/2005.11401) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** Patrick Lewis et al.<br>
+**Contribution:** `🔍 RAG Architecture`
+
+> Combines a **dense retriever with a sequence generator**, marginalizing over retrieved passages for knowledge-intensive tasks. The paper establishes an influential RAG formulation alongside earlier retrieval-enhanced work; retrieval can support factuality but does not guarantee it.
+
+---
+
+### 📄 [Scaling Laws for Neural Language Models](https://arxiv.org/abs/2001.08361) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** Jared Kaplan et al. (OpenAI)<br>
+**Contribution:** `📊 Foundational Scaling`
+
+> Fits empirical **language-model loss scaling** with parameters, data and compute over measured regimes. A quantitative framework for training allocation; loss fits should be distinguished from laws of general capability or unlimited extrapolation.
+
+---
+
+## 🏛️ 2019
+
+### 📄 [Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer](https://arxiv.org/abs/1910.10683) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** Colin Raffel et al.<br>
+**Contribution:** `🔄 Text-to-Text Transfer`
+
+> Studies a **unified text-to-text task format**, pretraining objectives, data and transfer learning in T5. The controlled comparisons and C4 corpus are its reader value; the 2019 preprint precedes the JMLR 2020 publication.
+
+---
+
+### 📄 [ZeRO: Memory Optimizations Toward Training Trillion Parameter Models](https://arxiv.org/abs/1910.02054) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** Samyam Rajbhandari, Jeff Rasley, Olatunji Ruwase and Yuxiong He (Microsoft)<br>
+**Contribution:** `💾 State Partitioning`
+
+> Partitions **optimizer states, gradients and parameters** across data-parallel workers to reduce redundant memory. ZeRO explains how memory savings interact with communication and parallelism; its trillion-parameter capacity analysis is distinct from demonstrating a trained trillion-parameter model.
+
+---
+
+### 📄 [Megatron-LM: Training Multi-Billion Parameter Language Models Using Model Parallelism](https://arxiv.org/abs/1909.08053) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** Mohammad Shoeybi et al.<br>
+**Contribution:** `⚙️ Tensor Parallelism`
+
+> Introduces efficient **intra-layer tensor model parallelism** for multi-billion-parameter Transformer training. The original Megatron-LM report explains how to split attention and feed-forward computation across GPUs; pipeline parallelism belongs to later work.
+
+---
+
+### 📄 [Language Models are Unsupervised Multitask Learners](https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** Alec Radford et al. (OpenAI)<br>
+**Contribution:** `🎯 Decoder-Only`
+
+> An **official GPT-2 report** evaluating autoregressive language modeling as unsupervised multitask learning. It studies zero-shot transfer using task-formatted text; results vary widely across tasks, motivating investigation of scale rather than proving universal emergent capability.
+
+---
+
+### 📄 [Transformer-XL: Attentive Language Models Beyond a Fixed-Length Context](https://arxiv.org/abs/1901.02860) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** Dai et al.<br>
+**Contribution:** `🔁 Segment Recurrence`
+
+> Combines **segment-level recurrence and relative positional encoding** to reuse prior hidden states beyond a fixed training segment. It explains context fragmentation and recurrent reuse; finite cached states and memory costs still constrain context.
+
+---
+
+## 🏛️ 2018
+
+### 📄 [BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding](https://arxiv.org/abs/1810.04805) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** Jacob Devlin et al. (Google)<br>
+**Contribution:** `🧠 Bidirectional`
+
+> Pretrains a **bidirectional Transformer encoder** with masked-language modeling and a sentence-level objective, then adapts it to downstream tasks. BERT established an influential contextual pretraining recipe; masking and fine-tuning distinguish its use from autoregressive generation.
+
+---
+
+### 📄 [Improving Language Understanding by Generative Pre-Training](https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** Alec Radford, Karthik Narasimhan, Tim Salimans and Ilya Sutskever<br>
+**Contribution:** `🌱 Generative Pretraining`
+
+> Studies **generative pretraining on BooksCorpus followed by task-specific supervised adaptation** in GPT-1. It demonstrates useful transfer from a decoder language model, building on earlier language pretraining rather than originating the two-stage idea.
+
+---
+
+## 🏛️ 2017
+
+### 📄 [Deep Contextualized Word Representations](https://arxiv.org/abs/1802.05365) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** Peters et al.<br>
+**Contribution:** `🧠 Contextual Representations`
+
+> **ELMo** combines internal layers of a bidirectional language model into context-dependent word representations for downstream systems. Read it as a bridge from static embeddings to contextual pretraining, not the first contextual representation method; earlier public OpenReview posting predates NAACL 2018.
+
+---
+
+### 📄 [Deep reinforcement learning from human preferences](https://arxiv.org/abs/1706.03741) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** Paul Christiano et al.<br>
+**Contribution:** `🏗️ Foundation`
+
+> Learns **reward models from human comparisons of trajectory segments** and uses them to train deep-RL agents. A foundational preference-learning demonstration in simulated control/Atari, providing lineage for later language-model RLHF rather than originating all human-feedback learning.
+
+---
+
+### 📄 [Attention Is All You Need](https://arxiv.org/abs/1706.03762) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** Ashish Vaswani et al.<br>
+**Contribution:** `🏗️ Transformer`
+
+> Introduced the attention-based **Transformer** for sequence transduction, removing recurrent and convolutional sequence layers. Parallel training and shorter dependency paths helped establish the architecture used by BERT and GPT; autoregressive generation remains sequential. [Detailed summary](../summaries/Attention%20Is%20All%20You%20Need%20.md).
+
+---
+
+### 📄 [Outrageously Large Neural Networks: The Sparsely-Gated Mixture-of-Experts Layer](https://arxiv.org/abs/1701.06538) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** Shazeer et al.<br>
+**Contribution:** `🧩 Conditional Computation`
+
+> Introduces a **sparsely gated expert layer** that activates a small subset of networks per input. It separates total capacity from active compute while exposing load balancing and communication as central engineering problems; a key precursor to Switch and modern MoE models.
+
+---
+
+## 🏛️ 2000
+
+### 📄 [A Neural Probabilistic Language Model](https://jmlr.org/papers/v3/bengio03a.html) ![Hall of Fame](https://img.shields.io/badge/⭐-Hall%20of%20Fame-ff1493?style=flat&labelColor=000000)
+
+**Authors:** Bengio, Ducharme & Vincent (NIPS 2000); with Jauvin (JMLR 2003)<br>
+**Contribution:** `🧠 Learned Word Representations`
+
+> Learns distributed word representations jointly with a **neural next-word predictor**, sharing statistical strength across similar word sequences. A historical foundation for neural language modeling; the fixed context and computational limits differ from modern LLMs. The NIPS 2000 precursor predates the expanded JMLR 2003 paper. [NIPS 2000 record](https://papers.nips.cc/paper/2000/hash/728f206c2a01bf572b5940d7d9a8fa4c-Abstract.html).
+
+---
+
+[← Browse the collection](../README.md) · [Suggest a paper or correction](../CONTRIBUTING.md)
