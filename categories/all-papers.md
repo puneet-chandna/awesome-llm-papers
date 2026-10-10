@@ -3,7 +3,7 @@
 <div align="center">
 
 [![Awesome](https://awesome.re/badge-flat2.svg)](https://awesome.re)
-[![Works](https://img.shields.io/badge/Works-148-blue.svg)](all-papers.md)
+[![Works](https://img.shields.io/badge/Works-149-blue.svg)](all-papers.md)
 [![Years](https://img.shields.io/badge/Years-2000--2026-green.svg)](all-papers.md)
 
 **One record per curated work, with useful cross-category navigation. Papers, technical reports and author research resources are labeled in their entries.**
@@ -17,6 +17,12 @@ Dates follow the earliest public paper/resource record verified in this audit; v
 ---
 
 ## 📅 2026
+
+### [Scaling Laws for Looped Mixture of Experts](https://arxiv.org/abs/2609.40316)
+
+**Yanbei Chen, Anirudh Goyal & Raghuraman Krishnamoorthi** • [Efficiency](efficiency.md) [Architectures](architectures.md)
+
+> Fits a **joint recurrence–sparsity scaling law** to guide looped MoE design under training-compute and weight-memory budgets.
 
 ### [Attention Residuals](https://arxiv.org/abs/2603.15031)
 

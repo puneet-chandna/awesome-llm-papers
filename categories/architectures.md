@@ -142,6 +142,15 @@ _From the original Transformer to State Space Models and Mixture of Experts, the
 
 ---
 
+### 📄 [Scaling Laws for Looped Mixture of Experts](https://arxiv.org/abs/2609.40316)
+
+**Authors:** Yanbei Chen, Anirudh Goyal and Raghuraman Krishnamoorthi (Meta AI)<br>
+**Contribution:** `🔁 Looped MoE`
+
+> See the main entry in [Efficiency & Scaling](efficiency.md) for the joint recurrence–sparsity law, evidence and limitations.
+
+---
+
 ## 🆕 Recent Breakthroughs
 
 ### 📄 [Jamba: A Hybrid Transformer-Mamba Language Model](https://arxiv.org/abs/2403.19887)

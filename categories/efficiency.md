@@ -97,6 +97,15 @@ _From quantization breakthroughs to attention optimization, these papers enable 
 
 ---
 
+### 📄 [Scaling Laws for Looped Mixture of Experts](https://arxiv.org/abs/2609.40316)
+
+**Authors:** Yanbei Chen, Anirudh Goyal and Raghuraman Krishnamoorthi (Meta AI)<br>
+**Contribution:** `🔁 Recurrence & Sparsity Scaling`
+
+> Fits a **joint scaling law for recurrent passes and sparse experts**, with bounded, sparsity-dependent gains and held-out prediction checks. It helps choose loop count and expert count under training-compute and weight-memory budgets. At matched training compute, a looped MoE with 1.3B non-embedding parameters approximately matches a 2.9B non-embedding baseline's BBH/GSM8K average using 1.8× its inference FLOPs, while trailing on the 14-benchmark average. The fitted asymptote is empirical, and memory optimization excludes KV cache and other runtime state.
+
+---
+
 ## ✂️ Pruning & Sparsity
 
 ### 📄 [SparseGPT: Massive Language Models Can Be Accurately Pruned in One-Shot](https://arxiv.org/abs/2301.00774)
